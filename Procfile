@@ -1,1 +1,2 @@
-web: gunicorn bebarz1.app:app
+web: gunicorn app:app
+
