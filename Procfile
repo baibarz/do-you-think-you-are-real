@@ -1,1 +1,1 @@
-web: gunicorn flask-example.app:app
+web: gunicorn you_are_real.app:app
