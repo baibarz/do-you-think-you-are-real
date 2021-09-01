@@ -7,10 +7,13 @@
 
 </head>
 <body>
-    <div id="main_text"> 
-        DO YOU THINK YOU ARE REAL
+    <div>
+        <form action="/update" method="POST">
+            <div id="main_text">{{question}}</div>
+            <input id="test_input" name="test"/>
+            <input type="submit">
+        </form>
     </div>
-
 </body>
 
 </html>
