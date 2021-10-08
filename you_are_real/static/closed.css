@@ -1,13 +1,4 @@
 
-
-
-
-
-html, body {
-    height: 100%;
-    margin: 0px;}
-
-
 .text_box
 {
 
@@ -47,4 +38,17 @@ html, body {
           background-position: 200% center;
         }
       
+       
+   
+  }  
+  @media screen and (max-width: 600px)
+  {
+    h1 {
 
+      font-size: 60px;
+      padding: 5%;
+    }
+    h2 {
+      font-size: 50px;
+    }
+  }
