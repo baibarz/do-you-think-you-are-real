@@ -1,0 +1,50 @@
+
+
+
+
+
+html, body {
+    height: 100%;
+    margin: 0px;}
+
+
+.text_box
+{
+
+  font-family: 'arcaderegular';
+  font-size: 65px;
+  width: 50%;
+  position: absolute;
+  top: 25%;
+  height: 50%;
+  left: 25%;
+  color: #ffffff;
+  text-align: center;
+  display:flex ;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+@font-face {
+         font-family: 'arcaderegular';
+         src: url('fonts/arcade-webfont.woff2') format('woff2'),
+         url('fonts/arcade-webfont.woff') format('woff');
+         font-style: normal;
+         font-weight: normal;
+}
+
+.background {
+    background: linear-gradient(to right, rgba(48,255,144,1) 0%, rgba(237,45,237,1) 25%,
+     rgba(201,152,38,1) 50%, rgba(48,255,230,1) 75%, rgba(48,255,144,1) 100%);
+    background-size: 200% auto;
+    animation: shine 3s linear infinite;
+    height: 100%; }
+
+    @keyframes shine {
+        to {
+          background-position: 200% center;
+        }
+      
+
