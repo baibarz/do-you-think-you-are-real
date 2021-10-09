@@ -1,16 +1,11 @@
 #main_text{
     color: #ffffff;
+    text-shadow: -1px -1px 0 rgb(255, 0, 0), 1px -1px 0 rgb(204, 0, 255), -1px 1px 0 rgb(0, 255, 55), 1px 1px 0 rgb(0, 38, 255);
     font-size: 100px;
     font-family: 'distortion_dos_analogueRg';
     margin: 0;
     padding: 0;
     text-align: center;
-    position:absolute;
-    top: 40%;
-    left: 50%;
-    transform: translateX(-50%); 
-    text-shadow: -1px -1px 0 rgb(255, 0, 0), 1px -1px 0 rgb(204, 0, 255), -1px 1px 0 rgb(0, 255, 55), 1px 1px 0 rgb(0, 38, 255);
-
   }
 
 @font-face{
@@ -32,9 +27,27 @@ html, body {
   background-attachment: fixed;
   background-size: cover;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .blurred {
   filter:blur(6px);
   
+}
+
+#test_input
+{
+  width: 30%;
+  
+}
+
+form
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
 }
