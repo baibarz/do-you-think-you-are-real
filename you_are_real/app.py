@@ -1,18 +1,48 @@
 from flask import Flask, render_template, request
 import datetime
+import json
 
 app = Flask(__name__)
 
 @app.route("/")
 def main_page(): 
-    current_time = datetime.datetime.now().time()  
-    open_time = datetime.time(hour=8)
-    closed_time =datetime.time(hour=16)
-    if current_time >= open_time and current_time <= closed_time:
-        return render_template("index.html", question="do you think you are real")
+    return render_template("index.html")
+
+
+def is_open(t_open, t_close, t_check):
+    is_open_day = (t_check >= t_open and t_check <= t_close)
+    # Open hours might straddle midnight
+    is_open_night = (t_close < t_open and (t_check < t_close or t_check > t_open))
+    return is_open_day or is_open_night
+
+
+@app.route("/content", methods=["POST"])
+def get_content():
+    request_data = request.get_json()
+    hour = datetime.timedelta(hours=int(request_data["hour"]))
+    open_time = datetime.timedelta(hours=8)
+    closed_time = datetime.timedelta(hours=16)
+    if is_open(open_time, closed_time, hour):
+        result = {
+            "css_file": "static/open.css",
+            "body" : render_template("open.html", question="do you think you are real"),
+            "title": "first prise"
+        }
     else:
-        return render_template("closed.html")
-        
+        result = {
+            "css_file": "static/closed.css",
+            "body" : render_template("closed.html"),
+            "title": "closed"
+        }
+    response = app.response_class(
+        response=json.dumps(result),
+        status=200,
+        mimetype='application/json'
+    )
+    return response
+
+
+    
 @app.route("/update", methods=["POST"])
 def get_response():
     form_data = request.form
