@@ -48,7 +48,7 @@ def get_content():
 
     
 @app.route("/update", methods=["POST"])
-def get_response():
-    answer = request.form["answer"]
+def record_answer():
+    answer = request.json["answer"]
     db.add_answer(answer)
     return ""
