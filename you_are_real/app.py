@@ -1,6 +1,9 @@
+from os import environ
 from flask import Flask, render_template, request
 import datetime
 import json
+
+from you_are_real.data import Database
 
 app = Flask(__name__)
 
@@ -9,6 +12,14 @@ def main_page():
     return render_template("index.html")
 
 ALWAYS_OPEN = True
+
+credentials = {
+    "host": environ["THINK_HOST"],
+    "dbname": environ["THINK_DATABASE"],
+    "user": environ["THINK_USER"],
+    "password": environ["THINK_PASSWORD"]
+}
+db = Database(credentials)
 
 def is_open(t_open, t_close, t_check):
     is_open_day = (t_check >= t_open and t_check <= t_close)
@@ -46,5 +57,6 @@ def get_content():
     
 @app.route("/update", methods=["POST"])
 def get_response():
-    form_data = request.form
-
+    answer = request.form["answer"]
+    db.add_answer(answer)
+    return ""
