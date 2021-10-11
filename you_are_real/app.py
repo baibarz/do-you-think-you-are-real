@@ -12,8 +12,14 @@ def main_page():
     return render_template("index.html")
 
 db = Database(environ["DATABASE_URL"])
+force_state = environ.get("FORCE_STATE", None)
+
 
 def is_open(t_open, t_close, t_check):
+    if force_state == "open":
+        return True
+    elif force_state == "closed":
+        return False    
     is_open_day = (t_check >= t_open and t_check <= t_close)
     # Open hours might straddle midnight
     is_open_night = (t_close < t_open and (t_check < t_close or t_check > t_open))
