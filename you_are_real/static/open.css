@@ -40,8 +40,12 @@ html, body {
 
 #AnswerInput
 {
-  width: 30%;
-  
+  background-color: white;
+  border-style: ridge; 
+  min-height: 200px;
+  max-height: 500px;
+  overflow-y: scroll;
+  width: 60%;
 }
 
 #QuestionForm

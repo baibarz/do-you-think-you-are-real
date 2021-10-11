@@ -21,13 +21,12 @@ function checkLoad() {
 
 function submitForm() {
     const request = new XMLHttpRequest();
-    const formData = new FormData(document.forms.QuestionForm);
-    const data = {};
-    formData.forEach((v, k) => data[k] = v);
+    const data = {
+        answer: document.getElementById("AnswerInput").innerText
+    };
     request.open("POST", "/update");
     request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     request.send(JSON.stringify(data));
     const answerBox = document.getElementById("AnswerInput");
-    answerBox.value = "";
-    return false;
+    answerBox.innerHTML = "";
 }
