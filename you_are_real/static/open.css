@@ -1,12 +1,15 @@
 #MainText{
     color: #ffffff;
     text-shadow: -1px -1px 0 rgb(255, 0, 0), 1px -1px 0 rgb(204, 0, 255), -1px 1px 0 rgb(0, 255, 55), 1px 1px 0 rgb(0, 38, 255);
-    font-size: 100px;
+    font-size: 55px;
     font-family: 'distortion_dos_analogueRg';
     margin: 0;
     padding: 0;
     text-align: center;
+
   }
+  
+  
 
 @font-face{
     font-family: 'distortion_dos_analogueRg';
@@ -31,6 +34,8 @@ html, body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  filter: blur(0.40px);
+
 }
 
 .blurred {
@@ -40,12 +45,21 @@ html, body {
 
 #AnswerInput
 {
-  background-color: white;
+  padding: 1%;
   border-style: ridge; 
-  min-height: 200px;
-  max-height: 500px;
-  overflow-y: scroll;
-  width: 60%;
+  min-height: 80px;
+  max-height: 200px;
+  width: 65%;
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  color: rgb(0, 0, 0);
+  background-color: white;
+  overflow-y: hidden;
+  
+
+  
+
+
 }
 
 #QuestionForm
@@ -55,3 +69,13 @@ html, body {
   align-items: center;
   width: 50%;
 }
+
+.button1
+{
+  border: none;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  top: 1.5%;
+}
+
