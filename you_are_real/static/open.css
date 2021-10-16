@@ -1,7 +1,7 @@
 #MainText{
     color: #ffffff;
     text-shadow: -1px -1px 0 rgb(255, 0, 0), 1px -1px 0 rgb(204, 0, 255), -1px 1px 0 rgb(0, 255, 55), 1px 1px 0 rgb(0, 38, 255);
-    font-size: 70px;
+    font-size: 6rem;
     font-family: 'distortion_dos_analogueRg';
     margin: 0;
     padding: 0;
@@ -67,9 +67,13 @@ padding: 1%;
 }
 .button
 {
-  border:none;
   outline: none;
   cursor: pointer;
   position: relative;
   top: 1.5%;
-}
+  font-size: 1rem;
+  border: outset;
+  font-family: ¨monospace;
+  letter-spacing: 1.5px;
+  border-block-color: rgb(194, 194, 214);
+  }
