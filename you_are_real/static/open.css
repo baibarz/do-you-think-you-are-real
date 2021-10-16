@@ -6,7 +6,7 @@
     margin: 0;
     padding: 0;
     text-align: center;
-    filter: blur(1px);
+    filter: blur(0.5px);
 
   }
   
@@ -23,8 +23,6 @@
 html, body {
   height: 100%;
   margin: 0px;
-  filter: blur(0.25px);
-
 }
 
 .background {
