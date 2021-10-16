@@ -3,7 +3,7 @@
 {
 
   font-family: 'arcaderegular';
-  font-size: 7rem;
+  font-size: 5rem;
   width: 50%;
   position: absolute;
   top: 25%;
@@ -41,18 +41,14 @@
        
    
   }  
-  @media screen and (max-width: 600px)
-  {
-    h1 {
+  @media only screen and (max-width: 600px) {
+    body {
+      height: 100%;;
+      width: 100%;
+    
 
-      font-size: 60px;
-      padding: 5%;
-    }
-    h2 {
-      font-size: 50px;
     }
   }
-
 .outer-container {
   align-items: center;
   display: flex;
