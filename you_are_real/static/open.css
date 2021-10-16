@@ -23,7 +23,7 @@
 html, body {
   height: 100%;
   margin: 0px;
-  filter: blur(0.5px);
+  filter: blur(0.25px);
 
 }
 
