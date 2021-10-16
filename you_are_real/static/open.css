@@ -6,6 +6,7 @@
     margin: 0;
     padding: 0;
     text-align: center;
+    filter: blur(1px);
 
   }
   
@@ -22,6 +23,8 @@
 html, body {
   height: 100%;
   margin: 0px;
+  filter: blur(0.5px);
+
 }
 
 .background {
@@ -35,21 +38,23 @@ html, body {
   justify-content: center;
   align-items: center;
 
+ 
 }
 
   
 #AnswerInput
 {
-padding: 1%;
+  padding: 1%;
   border-style: ridge;
   min-height: 80px;
   max-height: 200px;
   width: 50%;
-  font-family: 'Courier New', monospace;
-  font-size: 12px;
+  font-family: monospace;
+  font-size: 16px;
   color: rgb(0, 0, 0);
   background-color: white;
   overflow-y: hidden;
+
 
  
 
@@ -73,7 +78,10 @@ padding: 1%;
   top: 1.5%;
   font-size: 1rem;
   border: outset;
-  font-family: ¨monospace;
+  font-family: inherit;
   letter-spacing: 1.5px;
   border-block-color: rgb(194, 194, 214);
+  background-color: azure;
+  box-shadow: -1px -1px 0 rgb(255, 0, 0), 1px -1px 0 rgb(204, 0, 255), -1px 1px 0 rgb(0, 255, 55), 1px 1px 0 rgb(0, 38, 255);
+  z-index: 3;
   }
