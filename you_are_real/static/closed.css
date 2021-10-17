@@ -1,8 +1,7 @@
 body{
   margin: 0;
  padding:0 ;
-  font-size: 5rem;
-  filter: blur(4pX);
+  font-size: 75px;
 }
 .TextBox
 {
@@ -14,7 +13,7 @@ body{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  filter: blur(4pX);
+  filter: blur(5pX);
   letter-spacing: 7px;
   text-shadow: -1px -1px 0 rgb(0, 0, 0), 1px -1px 0 rgb(0, 0, 0), -1px 1px 0 rgb(0, 0, 0), 1px 1px 0 rgb(0, 0, 0);
 }
@@ -31,7 +30,7 @@ body{
     background: linear-gradient(to right, rgba(48,255,144,1) 0%, rgba(237,45,237,1) 25%,
      rgba(201,152,38,1) 50%, rgba(48,255,230,1) 75%, rgba(48,255,144,1) 100%);
     background-size: 200% auto;
-    animation: shine 5s linear infinite;
+    animation: shine 4s linear infinite;
     height: 100%;
  }
   
