@@ -8,12 +8,7 @@ body
 {
 
   font-family: 'distortion_dos_analogueRg';
-  font-size: 70px;
-  width: 50%;
-  position: absolute;
-  top: 25%;
-  height: 50%;
-  left: 25%;
+  font-size: 6rem;
   color: #ffffff;
   text-align: center;
   display:flex ;
