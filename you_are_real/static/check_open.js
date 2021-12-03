@@ -21,8 +21,12 @@ function checkLoad() {
 
 function submitForm() {
     const request = new XMLHttpRequest();
+    const answer = document.getElementById("AnswerInput").innerText;
+    if (answer === '') {
+        return;
+    }
     const data = {
-        answer: document.getElementById("AnswerInput").innerText
+        answer: answer
     };
     request.open("POST", "/update");
     request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
