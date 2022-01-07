@@ -20,16 +20,16 @@ def is_open(t_open, t_close, t_check):
         return True
     elif force_state == "closed":
         return False    
-    is_open_day = (t_check >= t_open and t_check <= t_close)
+    is_open_day = (t_check >= t_open and t_check < t_close)
     # Open hours might straddle midnight
-    is_open_night = (t_close < t_open and (t_check < t_close or t_check > t_open))
+    is_open_night = (t_close < t_open and (t_check < t_close or t_check >= t_open))
     return is_open_day or is_open_night
 
 
 @app.route("/content", methods=["POST"])
 def get_content():
     request_data = request.get_json()
-    hour = datetime.timedelta(hours=int(request_data["hour"]))
+    hour = datetime.timedelta(minutes=int(request_data["minutes"]))
     open_time = datetime.timedelta(hours=8)
     closed_time = datetime.timedelta(hours=16)
     if is_open(open_time, closed_time, hour):

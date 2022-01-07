@@ -1,8 +1,9 @@
 function checkLoad() {
     const request = new XMLHttpRequest();
     request.open("POST", "/content");
-    const curernt_hour = new Date().getHours()
-    const request_json = JSON.stringify({"hour": curernt_hour});
+    const date = new Date();
+    const curernt_time = date.getHours() * 60 + date.getMinutes();
+    const request_json = JSON.stringify({"minutes": curernt_time});
     request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     request.onreadystatechange = function() {
         if (request.readyState === 4 && request.status === 200) {
