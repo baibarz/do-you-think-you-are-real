@@ -1,3 +1,6 @@
+var userId = -1;
+var questionId = 0; // Always starts with "who are you?"
+
 function checkLoad() {
     const request = new XMLHttpRequest();
     request.open("POST", "/content");
@@ -27,10 +30,23 @@ function submitForm() {
         return;
     }
     const data = {
-        answer: answer
+        user_id: userId,
+        answer: answer,
+        question_id: questionId
     };
     request.open("POST", "/update");
     request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    request.onreadystatechange = function() {
+        if (request.readyState === 4 && request.status === 200) {
+            const response_values = JSON.parse(request.responseText);
+            const questionDiv = document.getElementById("MainText");
+            questionDiv.innerText = response_values["question"]
+            questionId = response_values["question_id"];
+            if ("user_id" in response_values) {
+                userId = response_values["user_id"];
+            }
+        }
+    };
     request.send(JSON.stringify(data));
     const answerBox = document.getElementById("AnswerInput");
     answerBox.innerHTML = "";

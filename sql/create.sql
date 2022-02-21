@@ -1,31 +1,27 @@
-DROP TABLE IF EXISTS "Answers";
-CREATE TABLE "Answers"
+DROP TABLE IF EXISTS Questions;
+CREATE TABLE Questions
 (
-    "Id" SERIAL PRIMARY KEY,
-    "Answer" TEXT
+    Id SERIAL PRIMARY KEY,
+    Question TEXT
 );
 
-DROP TABLE IF EXISTS "Questions";
-CREATE TABLE "Questions"
+DROP TABLE IF EXISTS QuestionsHaveAnswers;
+CREATE TABLE QuestionsHaveAnswers
 (
-    "Id" SERIAL PRIMARY KEY,
-    "Question" TEXT
+    Id SERIAL PRIMARY KEY,
+    QuestionId integer NOT NULL,
+    Answer TEXT,
+    UserId integer NOT NULL
 );
 
-DROP TABLE IF EXISTS "QuestionsHaveAnswers";
-CREATE TABLE "QuestionsHaveAnswers"
+DROP TABLE IF EXISTS Users;
+CREATE TABLE Users
 (
-    "Id" SERIAL PRIMARY KEY,
-    "QuestionId" integer NOT NULL,
-    "AnswerId" integer NOT NULL,
-    "UserId" integer NOT NULL
+    Id SERIAL PRIMARY KEY,
+    Name TEXT
 );
 
-DROP TABLE IF EXISTS "Users";
-CREATE TABLE "Users"
-(
-    "Id" SERIAL PRIMARY KEY,
-    "Name" TEXT
-);
-
-INSERT INTO "Questions" ("Question") VALUES ('Who are you?'), ('Do you think you are real?');
+INSERT INTO Questions (Id, Question) 
+	VALUES 
+		(0, 'Who are you?'), 
+		(1, 'Do you think you are real?');
