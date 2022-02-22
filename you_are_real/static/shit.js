@@ -1,6 +1,6 @@
 const TICK_INTERVAL = 50;
 const JUMP_DISTANCE = 50;
-const R_CIRCLE = 50;
+const R = 50 / 2;
 const N_TARGETS = 5;
 const EPSILON = 1;
 
@@ -13,10 +13,12 @@ function init() {
     drawArea = document.getElementById("DrawArea");
     targets = new Array(N_TARGETS);
     for (var i = 0; i < N_TARGETS; i++) {
-        const target = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-        target.setAttribute("cx", R_CIRCLE + Math.random() * (drawArea.clientWidth - 2 * R_CIRCLE));
-        target.setAttribute("cy", R_CIRCLE + Math.random() * (drawArea.clientHeight - 2 * R_CIRCLE));
-        target.setAttribute("r", R_CIRCLE);
+        const target = document.createElementNS("http://www.w3.org/2000/svg", "image");
+        target.setAttribute("href", "images/poop.svg");
+        target.setAttribute("x", Math.random() * (drawArea.clientWidth - 2 * R));
+        target.setAttribute("y", Math.random() * (drawArea.clientHeight - 2 * R));
+        target.setAttribute("Width", 2 * R);
+        target.setAttribute("Height", 2 * R);
         drawArea.appendChild(target);
         targets[i] = target;
     }
@@ -26,8 +28,8 @@ function init() {
 
 function getCoords(target) {
     return {
-        x: parseFloat(target.getAttribute("cx")),
-        y: parseFloat(target.getAttribute("cy"))
+        x: parseFloat(target.getAttribute("x")),
+        y: parseFloat(target.getAttribute("y"))
     };
 }
 
@@ -59,8 +61,8 @@ function vecLen(v) {
 }
 
 function moveBounded(target, pos) {
-    target.setAttribute("cx", Math.max(R_CIRCLE, Math.min(pos.x, drawArea.clientWidth - R_CIRCLE)));
-    target.setAttribute("cy", Math.max(R_CIRCLE, Math.min(pos.y, drawArea.clientHeight - R_CIRCLE)));
+    target.setAttribute("x", Math.max(0, Math.min(pos.x, drawArea.clientWidth - 2 * R)));
+    target.setAttribute("y", Math.max(0, Math.min(pos.y, drawArea.clientHeight - 2* R)));
 }
 
 function handleTick() {
@@ -74,7 +76,11 @@ function handleTick() {
     for (var i = 0; i < N_TARGETS; i++) {
         const target = targets[i];
         const p0 = getCoords(target);
-        const delta = vecsAdd(p0, vecMult(mouseCoords, -1));
+        const pCenter = {
+            x: p0.x + R,
+            y: p0.y + R
+        }
+        const delta = vecsAdd(pCenter, vecMult(mouseCoords, -1));
         const dist = vecLen(delta);
         if (dist < 150) {
             const dir = vecMult(delta, 1 / dist);
