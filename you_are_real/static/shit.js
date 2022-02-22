@@ -1,5 +1,5 @@
 const TICK_INTERVAL = 50;
-const JUMP_DISTANCE = 50;
+const JUMP_DISTANCE = 3000;
 const R = 50 / 2;
 const N_TARGETS = 5;
 const EPSILON = 1;
@@ -62,7 +62,7 @@ function vecLen(v) {
 
 function moveBounded(target, pos) {
     target.setAttribute("x", Math.max(0, Math.min(pos.x, drawArea.clientWidth - 2 * R)));
-    target.setAttribute("y", Math.max(0, Math.min(pos.y, drawArea.clientHeight - 2* R)));
+    target.setAttribute("y", Math.max(0, Math.min(pos.y, drawArea.clientHeight - 2 * R)));
 }
 
 function handleTick() {
@@ -82,11 +82,10 @@ function handleTick() {
         }
         const delta = vecsAdd(pCenter, vecMult(mouseCoords, -1));
         const dist = vecLen(delta);
-        if (dist < 150) {
-            const dir = vecMult(delta, 1 / dist);
-            const pF = vecsAdd(p0, vecMult(dir, JUMP_DISTANCE));
-            moveBounded(target, pF);
-        }
+        // delta * JUMP_DISTANCE / dist gives a unit vector, so linear dropoff is .. / dist^2
+        const step = vecMult(delta, JUMP_DISTANCE / Math.pow(dist, 2));
+        const pF = vecsAdd(p0, step);
+        moveBounded(target, pF);
     }
     setNextTick();
 }
