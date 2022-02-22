@@ -1,5 +1,6 @@
 const TICK_INTERVAL = 50;
-const JUMP_DISTANCE = 3000;
+const CURSOR_JUMP_DIST = 3000;
+const REPULSE_JUMP_DIST = 1000;
 const R = 50 / 2;
 const N_TARGETS = 5;
 const EPSILON = 1;
@@ -69,10 +70,11 @@ function handleTick() {
     if (checkVictory()) {
         return;
     }
-    if (mouseCoords === undefined) {
-        setNextTick();
-        return;
-    }
+    
+    // Differences between vector pairs
+    const distances = getDistanceMatrix();
+
+    // Compute moves for each element
     for (var i = 0; i < N_TARGETS; i++) {
         const target = targets[i];
         const p0 = getCoords(target);
@@ -80,14 +82,56 @@ function handleTick() {
             x: p0.x + R,
             y: p0.y + R
         }
-        const delta = vecsAdd(pCenter, vecMult(mouseCoords, -1));
-        const dist = vecLen(delta);
-        // delta * JUMP_DISTANCE / dist gives a unit vector, so linear dropoff is .. / dist^2
-        const step = vecMult(delta, JUMP_DISTANCE / Math.pow(dist, 2));
-        const pF = vecsAdd(p0, step);
+        
+        var pF = p0;
+        
+        // Movement due to cursor
+        if (mouseCoords !== undefined) {
+            const delta = vecsAdd(pCenter, vecMult(mouseCoords, -1));
+            const dist = vecLen(delta);
+            // delta * JUMP_DISTANCE / dist gives a unit vector, so linear dropoff is .. / dist^2
+            const step = vecMult(delta, CURSOR_JUMP_DIST / Math.pow(dist, 2));
+            pF = vecsAdd(pF, step);
+        }
+        
+        // Movement due to mutual repulsion
+        for (var j = 0; j < targets.length; j++) {
+            if (j != i) {
+                const v = distances[i][j];
+                const dst = vecLen(v);
+                if (dst === 0) {
+                    const vRand = {
+                        x: randomRepulse(),
+                        y: randomRepulse()
+                    }
+                    pf = vecsAdd(pF, vRand);
+                }
+                else {
+                    const vu = vecMult(v, 1 / dst);
+                    pF = vecsAdd(pF, vecMult(vu, REPULSE_JUMP_DIST / dst));
+                }
+            }
+        }
+        
+        
         moveBounded(target, pF);
     }
     setNextTick();
+}
+
+function randomRepulse() {
+    return Math.random() * REPULSE_JUMP_DIST * (Math.round(Math.random() * 2 - 1));
+}
+
+function getDistanceMatrix() {
+    return targets.map(t1 => targets.map(t2 => vecBetweenTargets(t1, t2)));;
+}
+
+function vecBetweenTargets(t1, t2) {
+    if (t1 === t2) {
+        return 0;
+    }
+    return vecsAdd(getCoords(t1), vecMult(getCoords(t2), -1));
 }
 
 function setNextTick() {
