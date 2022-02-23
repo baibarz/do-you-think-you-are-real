@@ -23,5 +23,5 @@ CREATE TABLE Users
 
 INSERT INTO Questions (Id, Question) 
 	VALUES 
-		(0, 'Who are you?'), 
-		(1, 'Do you think you are real?');
+		(0, 'Who are you'), 
+		(1, 'Do you think you are real');
