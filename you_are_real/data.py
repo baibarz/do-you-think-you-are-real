@@ -72,7 +72,7 @@ class Database:
                                 FROM QuestionsHaveAnswers qha
                                 WHERE
                                     qha.QuestionId = q.Id AND
-                                    qha.UserId = 1
+                                    qha.UserId = %(user_id)s
                             ) AND
                             q.Id > 1
                         ORDER BY RANDOM()
