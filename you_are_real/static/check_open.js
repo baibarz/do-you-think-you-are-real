@@ -46,6 +46,9 @@ function submitForm() {
                 userId = response_values["user_id"];
             }
         }
+        if (questionId === null) {
+            window.location.href="about:blank";
+        }
     };
     request.send(JSON.stringify(data));
     const answerBox = document.getElementById("AnswerInput");
