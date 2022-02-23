@@ -1,5 +1,6 @@
 const CURSOR_PUSH_STRENGTH = 3000;
 const EPSILON = 1;
+const FRICTION_DECAY = 0.995;
 const N_TARGETS = 5;
 const REPULSE_PUSH_STRENGTH = 1000;
 const TARGET_SIZE = 120;
@@ -105,7 +106,7 @@ function handleTick() {
         const target = targets[targetIndex];
         var deltaV = getCursorRepel(target.pos);
         deltaV = vecsAdd(deltaV, getMutualRepel(distances[targetIndex]));
-        target.vel = vecsAdd(target.vel, deltaV);
+        target.vel = vecsAdd(vecMult(target.vel, FRICTION_DECAY), deltaV);
         updateTargetPosition(target);
     }
     setNextTick();
@@ -201,8 +202,4 @@ function handleMouseMove(evt) {
         x: evt.clientX,
         y: evt.clientY
     }
-}
-
-function handleClick(evt) {
-    alert("x: " + mouseCoords.x + "\ny: " + mouseCoords.y);
 }
