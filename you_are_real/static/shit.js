@@ -98,6 +98,13 @@ function init() {
         }
         drawTarget(targets[i]);
     }
+
+    // Center intro text
+    const introText = document.getElementById("IntroText");
+    introText.setAttribute("x", (clientSize.x - introText.clientWidth) / 2);
+    introText.setAttribute("y", (clientSize.y - introText.clientHeight) / 2);
+
+    // Start main loop
     nextTick = Number(new Date());
     handleTick();
 }

@@ -18,3 +18,38 @@ svg {
     stroke-width: 15;
     fill: none;
 }
+
+text {
+    animation-duration: 2s;
+    animation-name: intro-flash;
+    font-size: 500%;
+    font-weight: bold;
+    opacity: 0;
+}
+
+@keyframes intro-flash {
+    0% {
+        opacity: 0;
+    }
+    14.29% {
+        opacity: 1;
+    }
+    28.57% {
+        opacity: 0;
+    }
+    42.86% {
+        opacity: 1;
+    }
+    57.14% {
+        opacity: 0;
+    }
+    71.43% {
+        opacity: 1;
+    }
+    85.71% {
+        opacity: 0;
+    }
+    100.00% {
+        opacity: 1;
+    }
+}
