@@ -1,7 +1,7 @@
 const TICK_INTERVAL = 50;
 const CURSOR_JUMP_DIST = 3000;
 const REPULSE_JUMP_DIST = 1000;
-const R = 50 / 2;
+const TARGET_SIZE = 120;
 const N_TARGETS = 5;
 const EPSILON = 1;
 
@@ -16,10 +16,10 @@ function init() {
     for (var i = 0; i < N_TARGETS; i++) {
         const target = document.createElementNS("http://www.w3.org/2000/svg", "image");
         target.setAttribute("href", "images/poop.svg");
-        target.setAttribute("x", Math.random() * (drawArea.clientWidth - 2 * R));
-        target.setAttribute("y", Math.random() * (drawArea.clientHeight - 2 * R));
-        target.setAttribute("Width", 2 * R);
-        target.setAttribute("Height", 2 * R);
+        target.setAttribute("x", Math.random() * (drawArea.clientWidth - TARGET_SIZE));
+        target.setAttribute("y", Math.random() * (drawArea.clientHeight - TARGET_SIZE));
+        target.setAttribute("width", TARGET_SIZE);
+        target.setAttribute("height", TARGET_SIZE);
         drawArea.appendChild(target);
         targets[i] = target;
     }
@@ -62,8 +62,8 @@ function vecLen(v) {
 }
 
 function moveBounded(target, pos) {
-    target.setAttribute("x", Math.max(0, Math.min(pos.x, drawArea.clientWidth - 2 * R)));
-    target.setAttribute("y", Math.max(0, Math.min(pos.y, drawArea.clientHeight - 2 * R)));
+    target.setAttribute("x", Math.max(0, Math.min(pos.x, drawArea.clientWidth - TARGET_SIZE)));
+    target.setAttribute("y", Math.max(0, Math.min(pos.y, drawArea.clientHeight - TARGET_SIZE)));
 }
 
 function handleTick() {
@@ -79,8 +79,8 @@ function handleTick() {
         const target = targets[i];
         const p0 = getCoords(target);
         const pCenter = {
-            x: p0.x + R,
-            y: p0.y + R
+            x: p0.x + TARGET_SIZE / 2,
+            y: p0.y + TARGET_SIZE / 2
         }
         
         var pF = p0;
@@ -159,5 +159,5 @@ function handleMouseMove(evt) {
 }
 
 function handleClick(evt) {
-
+    alert("x: " +mouseCoords.x + "\ny: " + mouseCoords.y);
 }
