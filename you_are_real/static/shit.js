@@ -104,7 +104,7 @@ function handleTick() {
                         x: randomRepulse(),
                         y: randomRepulse()
                     }
-                    pf = vecsAdd(pF, vRand);
+                    pF = vecsAdd(pF, vRand);
                 }
                 else {
                     const vu = vecMult(v, 1 / dst);
