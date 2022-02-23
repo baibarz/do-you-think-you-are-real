@@ -11,3 +11,10 @@ svg {
     right:0;
     top:0;
 }
+
+.target-circle {
+    opacity: 70%;
+    stroke: forestgreen;
+    stroke-width: 15;
+    fill: none;
+}

@@ -2,16 +2,19 @@ const CURSOR_PUSH_STRENGTH = 3000;
 const EPSILON = 1;
 const FRICTION_DECAY = 0.995;
 const N_TARGETS = 5;
+const R_VICTORY_CIRCLE = 200;
 const REPULSE_PUSH_STRENGTH = 1000;
 const TARGET_SIZE = 120;
 const TICK_INTERVAL = 50;
 const V_INIT = 5;
 
+const MARGIN = TARGET_SIZE / 2;
+
 var clientSize;
+var clientCenter;
 var drawArea;
-var nextTick;
-const margin = TARGET_SIZE / 2;
 var mouseCoords;
+var nextTick;
 var targets;
 
 /* 
@@ -70,12 +73,19 @@ function init() {
         x: drawArea.clientWidth,
         y: drawArea.clientHeight
     };
+    clientCenter = vecMult(clientSize, 1 / 2);
+    // Draw victory circle
+    const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+    circle.setAttribute("cx", clientCenter.x);
+    circle.setAttribute("cy", clientCenter.y);
+    circle.setAttribute("r", R_VICTORY_CIRCLE);
+    circle.setAttribute("class", "target-circle");
+    drawArea.appendChild(circle);
+
+    // Set up targets
     targets = new Array(N_TARGETS);
     for (var i = 0; i < N_TARGETS; i++) {
-        const pos = {
-            x: TARGET_SIZE / 2 + Math.random() * (drawArea.clientWidth - TARGET_SIZE),
-            y: TARGET_SIZE / 2 + Math.random() * (drawArea.clientHeight - TARGET_SIZE)
-        };
+        const pos = generateStartPosition();
         const target = document.createElementNS("http://www.w3.org/2000/svg", "image");
         target.setAttribute("href", "images/poop.svg");
         target.setAttribute("width", TARGET_SIZE);
@@ -90,6 +100,19 @@ function init() {
     }
     nextTick = Number(new Date());
     handleTick();
+}
+
+function generateStartPosition() {
+    // Loop until we get a position outside the victory circle
+    while (true) {
+        const pos = {
+            x: TARGET_SIZE / 2 + Math.random() * (drawArea.clientWidth - TARGET_SIZE),
+            y: TARGET_SIZE / 2 + Math.random() * (drawArea.clientHeight - TARGET_SIZE)
+        };
+        if (vecDist(pos, clientCenter) > R_VICTORY_CIRCLE) {
+            return pos;
+        }
+    }
 }
 
 // Main game loop
@@ -113,8 +136,8 @@ function handleTick() {
 }
 
 function drawTarget(target) {
-    target.ref.setAttribute("x", target.pos.x - margin / 2);
-    target.ref.setAttribute("y", target.pos.y - margin / 2);
+    target.ref.setAttribute("x", target.pos.x - MARGIN / 2);
+    target.ref.setAttribute("y", target.pos.y - MARGIN / 2);
 }
 
 function updateTargetPosition(target) {
@@ -125,12 +148,12 @@ function updateTargetPosition(target) {
 }
 
 function boundCoord(target, coord) {
-    if (target.pos[coord] < margin) {
-        target.pos[coord] = margin;
+    if (target.pos[coord] < MARGIN) {
+        target.pos[coord] = MARGIN;
         target.vel[coord] = -target.vel[coord];
     }
-    if (target.pos[coord] > clientSize[coord] - margin) {
-        target.pos[coord] = clientSize[coord] - margin;
+    if (target.pos[coord] > clientSize[coord] - MARGIN) {
+        target.pos[coord] = clientSize[coord] - MARGIN;
         target.vel[coord] = -target.vel[coord];
     }
 }
@@ -187,8 +210,9 @@ function setNextTick() {
 }
 
 function checkVictory() {
-    for (var i = 1; i < N_TARGETS; i++) {
-        if (!vecsEqual(targets[0].pos, targets[i].pos)) { return false; }
+    const outside = targets.filter(t => vecDist(t.pos, clientCenter) > R_VICTORY_CIRCLE);
+    if (outside.length > 0) {
+        return false;
     }
     alert("win!");
     for (var i = 0; i < N_TARGETS; i++) {
