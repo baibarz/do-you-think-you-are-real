@@ -1,20 +1,23 @@
-const CURSOR_JUMP_DIST = 3000;
+const CURSOR_PUSH_STRENGTH = 3000;
 const EPSILON = 1;
 const N_TARGETS = 5;
-const REPULSE_JUMP_DIST = 100000;
+const REPULSE_PUSH_STRENGTH = 1000;
 const TARGET_SIZE = 120;
 const TICK_INTERVAL = 50;
+const V_INIT = 5;
 
 var clientSize;
 var drawArea;
 var nextTick;
-var margins;
+const margin = TARGET_SIZE / 2;
 var mouseCoords;
 var targets;
 
 /* 
     Some basic vector functions 
 */
+
+const nullVec = { x: 0, y: 0 };
 
 function vecsAdd(v1, v2) {
     return {
@@ -56,13 +59,6 @@ function vecToString(v) {
     return "x: " + v.x + "\ny:" + v.y;
 }
 
-function vecBound(v) {
-    return {
-        x: Math.max(margins.x, Math.min(v.x, clientSize.x - margins.x)),
-        y: Math.max(margins.y, Math.min(v.y, clientSize.y - margins.y))
-    }
-}
-
 /*
     Game logic
 */
@@ -72,10 +68,6 @@ function init() {
     clientSize = {
         x: drawArea.clientWidth,
         y: drawArea.clientHeight
-    };
-    margins = {
-        x: TARGET_SIZE / 2,
-        y: TARGET_SIZE / 2
     };
     targets = new Array(N_TARGETS);
     for (var i = 0; i < N_TARGETS; i++) {
@@ -87,12 +79,13 @@ function init() {
         target.setAttribute("href", "images/poop.svg");
         target.setAttribute("width", TARGET_SIZE);
         target.setAttribute("height", TARGET_SIZE);
-        setItemPosition(target, pos);
         drawArea.appendChild(target);
         targets[i] = {
             "ref": target,
-            "pos": pos
+            "pos": pos,
+            "vel": vecMult(vecRand(), V_INIT)
         }
+        drawTarget(targets[i]);
     }
     nextTick = Number(new Date());
     handleTick();
@@ -110,48 +103,66 @@ function handleTick() {
     // Compute moves for each element
     for (var targetIndex = 0; targetIndex < N_TARGETS; targetIndex++) {
         const target = targets[targetIndex];
-        var pF = applyMouseRepel(target.pos);
-        pF = applyMutualRepel(pF, distances[targetIndex]);
-        pF = vecBound(pF);
-        target.pos = pF;
-        setItemPosition(target.ref, pF);
+        var deltaV = getCursorRepel(target.pos);
+        deltaV = vecsAdd(deltaV, getMutualRepel(distances[targetIndex]));
+        target.vel = vecsAdd(target.vel, deltaV);
+        updateTargetPosition(target);
     }
     setNextTick();
 }
 
-function setItemPosition(target, pos) {
-    target.setAttribute("x", pos.x - TARGET_SIZE / 2);
-    target.setAttribute("y", pos.y - TARGET_SIZE / 2);
+function drawTarget(target) {
+    target.ref.setAttribute("x", target.pos.x - margin / 2);
+    target.ref.setAttribute("y", target.pos.y - margin / 2);
 }
 
-// Movement due to running away from cursor
-function applyMouseRepel(pCenter) {
-    if (mouseCoords === undefined) {
-        return pCenter;
+function updateTargetPosition(target) {
+    target.pos = vecsAdd(target.pos, target.vel);
+    boundCoord(target, "x");
+    boundCoord(target, "y");
+    drawTarget(target);
+}
+
+function boundCoord(target, coord) {
+    if (target.pos[coord] < margin) {
+        target.pos[coord] = margin;
+        target.vel[coord] = -target.vel[coord];
     }
-    const delta = vecsAdd(pCenter, vecMult(mouseCoords, -1));
-    const dist = vecLen(delta);
-    // delta * JUMP_DISTANCE / dist gives a unit vector, so linear dropoff is .. / dist^2
-    const step = vecMult(delta, CURSOR_JUMP_DIST / Math.pow(dist, 2));
-    return vecsAdd(pCenter, step);
+    if (target.pos[coord] > clientSize[coord] - margin) {
+        target.pos[coord] = clientSize[coord] - margin;
+        target.vel[coord] = -target.vel[coord];
+    }
 }
 
-// Movement due to mutual repulsion
-function applyMutualRepel(pt0, distances) {
-    var pt = pt0;
+// Acceleration due to running away from cursor
+function getCursorRepel(pCenter) {
+    if (mouseCoords === undefined) {
+        return nullVec;
+    }
+    const diff = vecsAdd(pCenter, vecMult(mouseCoords, -1));
+    return getRepelFromDiff(diff, CURSOR_PUSH_STRENGTH);
+}
+
+// Acceleration due to mutual repulsion
+function getMutualRepel(distances) {
+    var deltaV = nullVec;
     for (var targetIndex = 0; targetIndex < distances.length; targetIndex++) {
         const diff = distances[targetIndex];
-        const dst = vecLen(diff);
-        if (dst === 0) {
-            // Add some random jitter
-            pt = vecsAdd(pt, vecRand());
-        }
-        else {
-            const vu = vecMult(diff, 1 / dst);
-            pt = vecsAdd(pt, vecMult(vu, REPULSE_JUMP_DIST / Math.pow(dst, 2)));
-        }
+        deltaV = vecsAdd(deltaV, getRepelFromDiff(diff, REPULSE_PUSH_STRENGTH));
     }
-    return pt;
+    return deltaV;
+}
+
+function getRepelFromDiff(diff, stengthConst) {
+    const dst = vecLen(diff);
+    if (dst === 0) {
+        // Add some random jitter
+        return vecRand();
+    }
+    else {
+        const vu = vecMult(diff, 1 / dst);
+        return vecMult(vu, stengthConst / Math.pow(dst, 2));
+    }
 }
 
 // Get an array of distances to all other targets from a given target
