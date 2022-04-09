@@ -13,9 +13,9 @@ svg {
 }
 
 .target-circle {
-    opacity: 70%;
+    opacity: 100%;
     stroke: forestgreen;
-    stroke-width: 15;
+    stroke-width: 10;
     fill: none;
 }
 

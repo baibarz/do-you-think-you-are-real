@@ -1,20 +1,22 @@
 """ Do YOU think you are real? """
 
-from os import environ
 import datetime
+from importlib.resources import read_text
 import json
+from os import environ
+from pathlib import Path
 
-from flask import Flask, render_template, request
+from flask import Flask, redirect, request, url_for
 
 from you_are_real.data import Database
+from you_are_real import private
 
 app = Flask(__name__)
 
 @app.route("/")
 def main_page():
     """ Get index.html """
-    # TODO: index.html could be static
-    return render_template("index.html")
+    return redirect(url_for("static", filename="index.html"))
 
 db = Database(environ["DATABASE_URL"])
 force_state = environ.get("FORCE_STATE", None)
@@ -36,6 +38,11 @@ def _json_response(result):
         mimetype='application/json'
     )
 
+def _read_private(name):
+    path = Path(".").joinpath("you_are_real", "private", name).absolute()
+    with open(path) as file:
+        return file.readlines()
+
 @app.route("/content", methods=["POST"])
 def get_content():
     """ Get main page content, depending on time of day"""
@@ -43,16 +50,18 @@ def get_content():
     hour = datetime.timedelta(minutes=int(request_data["minutes"]))
     open_time = datetime.timedelta(hours=8)
     closed_time = datetime.timedelta(hours=16)
+    p = Path(".")
+    p.joinpath("static")
     if _is_open(open_time, closed_time, hour):
         result = {
-            "css_file": "static/open.css",
-            "body" : render_template("open.html"),
+            "css_file": "open.css",
+            "body" : _read_private("open.html"),
             "title": "first prise"
         }
     else:
         result = {
-            "css_file": "static/closed.css",
-            "body" : render_template("closed.html"),
+            "css_file": "closed.css",
+            "body" : _read_private("closed.html"),
             "title": "closed"
         }
     return _json_response(result)
