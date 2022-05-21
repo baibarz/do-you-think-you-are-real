@@ -25,7 +25,7 @@ class Database:
                 "user_id": user_id,
                 "question_id": question_id
             }
-            cursor.execute("INSERT INTO QuestionsHaveAnswers (UserId, QuestionId, Answer)" \
+            cursor.execute("INSERT INTO Answers (UserId, QuestionId, Answer)" \
                 "VALUES (%(user_id)s, %(question_id)s, %(answer)s)", params)
 
     def get_user_id(self, name):
@@ -69,7 +69,7 @@ class Database:
                         WHERE
                             NOT EXISTS (
                                 SELECT qha.Id
-                                FROM QuestionsHaveAnswers qha
+                                FROM Answers qha
                                 WHERE
                                     qha.QuestionId = q.Id AND
                                     qha.UserId = %(user_id)s

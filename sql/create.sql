@@ -5,8 +5,8 @@ CREATE TABLE Questions
     Question TEXT
 );
 
-DROP TABLE IF EXISTS QuestionsHaveAnswers;
-CREATE TABLE QuestionsHaveAnswers
+DROP TABLE IF EXISTS Answers;
+CREATE TABLE Answers
 (
     Id SERIAL PRIMARY KEY,
     QuestionId integer NOT NULL,
