@@ -67,6 +67,12 @@ def get_content():
     return _json_response(result)
 
 
+def _get_next_question(user_id):
+    if db.has_answer(user_id, 1):
+        return db.get_question(1)
+    return db.get_random_question(user_id)
+
+
 @app.route("/update", methods=["POST"])
 def record_answer():
     """ Record answer and return next question """
@@ -76,16 +82,15 @@ def record_answer():
   
     # Next question
     if question_id == 0:
+        # "Who are you?"
         # Set user
         user_id = db.get_user_id(answer)
         if not user_id:
             user_id = db.create_user(answer)
-        # "Do you think you are real?"
-        question = db.get_question(1)
-        question_id = 1
     else:
         db.add_answer(user_id, question_id, answer)
-        question_id, question = db.get_random_question(user_id)
+    
+    question_id, question = _get_next_question(user_id)
     return _json_response(
         {
             "question_id": question_id,

@@ -79,3 +79,12 @@ class Database:
             )
             result = cursor.fetchone()
             return result if result else (None, None)
+
+    def has_answer(self, user_id, question_id):
+        with self.connection.cursor() as cursor:
+            cursor.execute(
+                """
+                    SELECT Id FROM Answers WHERE Id = %(user_id)s AND QuestionId = %(question_id)s
+                """,
+                { "user_id": user_id, "question_id": question_id }
+            )
