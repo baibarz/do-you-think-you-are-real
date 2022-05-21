@@ -9,17 +9,14 @@ class Database:
         self.connection = connect(conn_str)
         self.connection.autocommit = True
 
-    def _get_cursor(self):
-        return self.connection.cursor()
-
     def _get_all(self, table, column):
-        with self._get_cursor() as cursor:
+        with self.connection.cursor() as cursor:
             cursor.execute("SELECT %(column)s FROM %(table)s", {"table": table, "column": column})
             return cursor.fetchall()
 
     def add_answer(self, user_id, question_id, answer_text):
         """ Record a new answer """
-        with self._get_cursor() as cursor:
+        with self.connection.cursor() as cursor:
             params = {
                 "answer": answer_text,
                 "user_id": user_id,
@@ -30,21 +27,21 @@ class Database:
 
     def get_user_id(self, name):
         """ Get a numeric id for the specified user """
-        with self._get_cursor() as cursor:
+        with self.connection.cursor() as cursor:
             cursor.execute("SELECT Id FROM Users WHERE Name = %(name)s", {"name": name})
             result =  cursor.fetchone()
             return result[0] if result else None
 
     def create_user(self, name):
         """ Create a new user and return its id """
-        with self._get_cursor() as cursor:
+        with self.connection.cursor() as cursor:
             cursor.execute("INSERT INTO Users (Name) VALUES (%(name)s)", {"name": name})
             cursor.execute("SELECT Id FROM Users WHERE Name = %(name)s", {"name": name})
             return cursor.fetchone()[0]
 
     def get_question(self, question_id):
         """ Get the question with the corresponding id """
-        with self._get_cursor() as cursor:
+        with self.connection.cursor() as cursor:
             cursor.execute(
                 """
                     SELECT Question
@@ -61,7 +58,7 @@ class Database:
             Return a tuple containing the id and text of a new random question for the
             given user, or None if all questions are already answered
         """
-        with self._get_cursor() as cursor:
+        with self.connection.cursor() as cursor:
             cursor.execute(
                 """
                     SELECT q.Id, q.Question
