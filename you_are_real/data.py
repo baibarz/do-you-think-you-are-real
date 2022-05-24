@@ -84,7 +84,8 @@ class Database:
         with self.connection.cursor() as cursor:
             cursor.execute(
                 """
-                    SELECT Id FROM Answers WHERE Id = %(user_id)s AND QuestionId = %(question_id)s
+                    SELECT Id FROM Answers WHERE UserId = %(user_id)s AND QuestionId = %(question_id)s
                 """,
                 { "user_id": user_id, "question_id": question_id }
             )
+            return (len(cursor.fetchall()) > 0)

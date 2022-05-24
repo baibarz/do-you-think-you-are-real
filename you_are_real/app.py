@@ -68,8 +68,8 @@ def get_content():
 
 
 def _get_next_question(user_id):
-    if db.has_answer(user_id, 1):
-        return db.get_question(1)
+    if not db.has_answer(user_id, 1):
+        return (1, db.get_question(1))
     return db.get_random_question(user_id)
 
 
