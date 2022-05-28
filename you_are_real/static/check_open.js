@@ -47,7 +47,7 @@ function submitForm() {
             }
         }
         if (questionId === null) {
-            window.location.href="about:blank";
+            window.location.href="/static/shit_question.html";
         }
     };
     request.send(JSON.stringify(data));
