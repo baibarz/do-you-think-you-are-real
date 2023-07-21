@@ -22,32 +22,3 @@ function checkLoad() {
     }
     request.send(request_json);
 }
-
-function submitForm() {
-    const request = new XMLHttpRequest();
-    const answer = document.getElementById("AnswerInput").innerText;
-    if (answer === '') {
-        return;
-    }
-    const data = {
-        user_id: userId,
-        answer: answer,
-        question_id: questionId
-    };
-    request.open("POST", "/update");
-    request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    request.onreadystatechange = function() {
-        if (request.readyState === 4 && request.status === 200) {
-            const response_values = JSON.parse(request.responseText);
-            const questionDiv = document.getElementById("MainText");
-            questionDiv.innerText = response_values["question"]
-            questionId = response_values["question_id"];
-            if ("user_id" in response_values) {
-                userId = response_values["user_id"];
-            }
-        }
-    };
-    request.send(JSON.stringify(data));
-    const answerBox = document.getElementById("AnswerInput");
-    answerBox.innerHTML = "";
-}
