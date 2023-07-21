@@ -20,6 +20,12 @@ body{
   text-shadow: -1px -1px 0 rgb(0, 0, 0), 1px -1px 0 rgb(0, 0, 0), -1px 1px 0 rgb(0, 0, 0), 1px 1px 0 rgb(0, 0, 0);
 }
 
+.shitlink
+{
+  font-family: 'distortion_dos_analogueRg';
+  color: #ffffff;
+}
+
 @font-face{
   font-family: 'distortion_dos_analogueRg';
   src: url('fonts/distortion_dos_analogue-webfont.woff2') format('woff2'),
