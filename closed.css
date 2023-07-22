@@ -3,9 +3,8 @@ body{
  padding:0 ;
   font-size: 50px;
 }
-.TextBox
-{
 
+.text-base {
   font-family: 'distortion_dos_analogueRg';
   color: #ffffff;
   text-align: center;
@@ -13,9 +12,18 @@ body{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.text-box {
   filter: blur(5pX);
   letter-spacing: 7px;
   text-shadow: -1px -1px 0 rgb(0, 0, 0), 1px -1px 0 rgb(0, 0, 0), -1px 1px 0 rgb(0, 0, 0), 1px 1px 0 rgb(0, 0, 0);
+}
+
+.shitlink
+{
+  font-family: 'distortion_dos_analogueRg';
+  color: #ffffff;
 }
 
 @font-face{
