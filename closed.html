@@ -1,25 +1,34 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="ar">
 <head>
-    <meta name="google-site-verification" content="_ZbS4nmc_wZH6ipNmSD6XxZ4a_Aa5H0YFH1I9WWZspg" />
-    <meta name="msvalidate.01" content="1723E8BFFCC3E474B3C4CCE87D2E6DE9" />
-    <meta property="og:image" content="image1.jpg" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="http://doyouthinkyouarereal.com" />
-    <meta property="og:title" content="" />
-    <meta property="og:description" content="" />
-    <link rel="stylesheet" href="base.css" type="text/css" charset="utf-8" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="closed.css" type="text/css" charset="utf-8" />
+    
+    <title>closed</title>
+
+    
 </head>
 <body>
-    <div class="outer-container background">
-        <div class="text-box text-base">
-            <h1>CLOSED</h1>
-            <h2> opening hours 8:00-16:00 all days</h2>
+    <div id="background"></div>
+
+    <div class="container-">
+        <div class="closed-content">
+            <h1>Website is closed</h1>
+            <p>opening hours: 8:00-16:00 all days </p>
+            <a href="shit.html" class="text-base shitlink">click here to play a game in the meantime</a>
         </div>
-        <div class="text-box">
-            <a href="shit.html" class="text-base shitlink">CLICK HERE TO PLAY A GAME IN THE MEANTIME</a>
-        </div>    
     </div>
 </body>
+
+<script src="https://cdn.rawgit.com/sirxemic/jquery.ripples/master/dist/jquery.ripples.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".container").ripples({
+            resolution: 256,
+            perturbance: 0.01,
+        });
+    });
+</script>
+
+</html>

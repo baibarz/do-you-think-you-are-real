@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
     <meta name="google-site-verification" content="_ZbS4nmc_wZH6ipNmSD6XxZ4a_Aa5H0YFH1I9WWZspg" />
     <meta name="msvalidate.01" content="1723E8BFFCC3E474B3C4CCE87D2E6DE9" />
     <meta property="og:image" content="image1.jpg" />
@@ -10,196 +11,46 @@
     <meta property="og:url" content="http://doyouthinkyouarereal.com" />
     <meta property="og:title" content="" />
     <meta property="og:description" content="" />
-    <style>
-       
-        html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-        }
-
-        #Background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            opacity: 1;
-            background-color: rgb(0, 110, 255);
-            filter: blur(1px);
-        }
-
-        #Background img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            animation: glitchBg 11s infinite alternate;
-            
-        }
-
-        @keyframes glitchBg {
-            0% {
-                transform: translate(0%);
-            }
-            25% {
-                transform: translate(-5px, 5px);
-            }
-            50% {
-                transform: translate(5px, -5px);
-            }
-            75% {
-                transform: translate(-5px, 5px);
-            }
-            100% {
-                transform: translate(0%);
-            }
-        }
-
-        
-
-        #Title {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: #ffffff;
-            font-size: 6rem;
-            font-family: "Oswald", sans-serif;
-            text-transform: uppercase;
-            text-align: center;
-            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-        
-            
-
-          
-    
-          
-        }
-
-        .Title-title {
-            margin: 0;
-        
-        }
-        
-
-        .Title-color {
-            position: absolute;
-            top: 0;
-            opacity: 0;
-            mix-blend-mode: darken;
-            transition: opacity 0.3s;
-        }
-
-        .Title-b {
-            mix-blend-mode: color-burn;
-        }
-
-        #Title:hover .Title-color {
-            opacity: 1;
-        }
-
-        .Title-title-glitch .Title-color {
-            animation: glitch 50s infinite;
-        }
-
-        @keyframes glitch {
-            0% {
-                transform: translate(0);
-            }
-            25% {
-                transform: translate(-5px, 5px);
-            }
-            50% {
-                transform: translate(5px, -5px);
-            }
-            75% {
-                transform: translate(-5px, 5px);
-            }
-            100% {
-                transform: translate(0);
-            }
-        }
+    <link rel="stylesheet" href="open.css" type="text/css" charset="utf-8" />
+    <title>OPEN</title>
 
 
-    </style>
-    <title>open</title>
 </head>
 <body>
-    <div id="Background">
-        <img id="BackgroundImage" src="https://www.linkpicture.com/q/glitch_2.jpg" alt="Glitch Background">
+    <div class="bnav">
+        <a href="open.html">HOME</a>
+        <a href="studio.html">STUDIO</a>
+   
     </div>
-    
-    </div>
-    <div id="Title" class="Title-title-glitch">
-        <div class="Title-title">GLITCH</div>
-        <div class="Title-title Title-color Title-a">GLITCH</div>
-        <div class="Title-title Title-color Title-b">GLITCH</div>
-    </div>
+    <div id="background"></div>
+    <div id="text-container"></div>
     <script>
-        const gsTitle = {
-            init() {
-                this._root = document.querySelector("#Title");
-                this._titles = this._root.querySelectorAll(".Title-title");
-                this._frame = this._frame.bind(this);
-                this.setTexts([
-                    "DO YOU THINK YOU ARE REAL",
-                    "TROR DU AT DU ER EKTE",
-                    ".هل تعتقد أنك حقيقي!",
-                    "¿CREES QUE ERES REAL?",
-                    "你认为你是真实的吗",
-                    "PENSEZ-VOUS QUE VOUS ÊTES RÉEL",
-                    "ΝΟΜΙΖΕΙΣ ΟΤΙ ΕΙΣΑΙ ΠΡΑΓΜΑΤΙΚΟΣ",
-                    "自分が本物だと思いますか",
-                    ".هل تعتقد أنك حقيقي!",
-                    "你认为你是真实的吗",
-                ]);
-            },
-            on() {
-                if (!this._frameId) {
-                    this._frame();
-                }
-            },
-            off() {
-                clearTimeout(this._frameId);
-                this._textContent(this._text);
-                delete this._frameId;
-            },
-            setTexts([text, ...alt]) {
-                this._text = text;
-                this._textAlt = alt;
-            },
+        const textArray = [
 
-        
-            _text: "",
-            _textAlt: [],
-            _rand(n) {
-                return Math.random() * n | 0;
-            },
-            _textContent(txt) {
-                this._titles.forEach(el => el.textContent = txt);
-            },
-            _frame() {
-                const txt = Array.from(this._text);
+        "DO YOU THINK YOU ARE REAL",
+                "¿CREES QUE ERES REAL",
+                "TROR DU AT DU ER EKTE",
+                "你认为你是真实的吗",
+                "PENSEZ VOUS QUE VOUS ÊTES RÉEL",
+                "MYŚLISZ ŻE JESTEŚ PRAWDZIWY",
+                "PENSI DI ESSERE REALE",
+                "ΝΟΜΙΖΕΙΣ ΟΤΙ ΕΙΣΑΙ ΠΡΑΓΜΑΤΙΚΟΣ",
+                "自分が本物だと思いますか",
+                "هل تعتقد أنك حقيقي؟",
+                "ВЫ ДУМАЕТЕ ЧТО ТЫ НАСТОЯЩИЙ",
+                "Glaubst du dass du echt bist?",
+                "TROR DU AT DU ER EKTE"
+        ];
 
-                for (let i = 0; i < 1; ++i) {
-                    const ind = this._rand(this._text.length);
+        const textContainer = document.getElementById("text-container");
+        let currentIndex = 0;
 
-                    txt[ind] = this._textAlt[this._rand(this._textAlt.length)][ind];
-                }
-                this._textContent(txt.join(""));
-                this._root.classList.add("Title-glitch");
-                setTimeout(() => {
-                    this._textContent(this._text);
-                    this._root.classList.remove("Title-glitch");
-                }, 50 + Math.random() * 500);
-                this._frameId = setTimeout(this._frame, 250 + Math.random() * 500);
-            },
-        };
+        function changeLanguage() {
+            textContainer.textContent = textArray[currentIndex];
+            currentIndex = (currentIndex + 1) % textArray.length;
+        }
 
-        gsTitle.init();
-        gsTitle.on();
+        setInterval(changeLanguage, 1500); // Change text every 1,5 
     </script>
 </body>
 </html>

@@ -1,0 +1,83 @@
+body { 
+    
+    direction: rtl;
+    padding: 0; 
+    background-color: #222;
+    position: absolute; 
+    inset: 0; 
+    display: flex; 
+    place-content: baseline; 
+    align-items: center; 
+    overflow: hidden; 
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.bnav {
+    background-color: #6d6a6ad3;
+    overflow: hidden;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    bottom: -10px;
+    position: absolute;
+    z-index: 2;
+    LEFT: inherit;
+
+    }
+  .bnav a {
+    float: left;
+    color: #000000;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+}
+
+
+.bnav a:hover {
+    background-color: #f0de3b2a;
+    color: rgba(255, 255, 255, 0.54);
+    border: 2px solid rgb(0, 0, 0);
+    filter: blur(1px);
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#background {
+    --size: 500px;
+    --speed: 30S;
+    --easing: cubic-bezier(0.8, 0.2, 0.2, 0.8);
+    width: var(--size);
+    height: var(--size);
+    filter: blur(calc(var(--size) / 6));
+    background-image: linear-gradient(rgba(233, 238, 238, 0.671), #9e9e6386);
+    animation: rotate var(--speed) var(--easing) alternate infinite;
+    border-radius: 30% 70% 70% 30%/30% 30% 70% 70%;
+    position: fixed;
+    top: 37%;
+    left: 37%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+#text-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50px;
+    color: white;
+    text-align: center; 
+    font-family:'Trebuchet MS','Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}

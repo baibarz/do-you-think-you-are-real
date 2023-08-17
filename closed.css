@@ -1,117 +1,71 @@
 body {
-  margin: 0;
-  padding:0;
-  
-
-}
-
-h1 {
-  font-size:800%;
-  font-family: 'glitch';
-  text-shadow: -1px -1px 0 rgb(255 0 0), 1px -1px 0 rgb(0 14 255), -1px 1px 0 rgb(104 255 175), 1px 1px 0 rgb(245 213 39);
-    letter-spacing: 30px;
-
-
-
-}
-
-h2 {
-  font-size:175%;
-  font-stretch:extra-condensed;
-  font-family:'coding';
-  
-  
-
-
-
-
-
-  
-
-}
-
-.text-base {
-  color: #ffffff;
-  text-align: center;
-  
-
-
-}
-
-.text-box {
-
-  letter-spacing: 3px;
-
-  
-}
-
-.shitlink
-{
-  text-decoration: none;
-  font-size: 175%;
-text-decoration-line: underline;
-  background: linear-gradient(to right, rgb(255 0 0) 5%, rgb(0 14 255) 11%,rgb(0 255 22) 18%,rgb(255 0 0) 26%, rgb(0 14 255) 37%,rgb(0 255 22) 49%,rgb(255 0 0) 55%,
-     rgb(0 14 255) 65%,rgb(0 255 22) 76%, rgb(255 0 0) 81%,rgb(0 14 255) 88%,rgb(0 255 22) 92%,rgb(255 0 0) 94%,rgb(20 14 14) 95%,rgb(0 14 255) 96%,rgb(255 255 255) 97%,rgb(0 14 255) 99%,rgb(255 247 247) 85%);
-    background-size: 9% auto;
-  animation: shine 10s cubic-bezier(0.47, 0, 0.75, 0.72) infinite;
-font-family:'coding';
-
-
-     
-   
-
-
-}
-
-@font-face{
-
-font-style: normal;
-font-weight: normal;
-font-family:'glitch';
-src: url('fonts/glitch.woff2');
-url:'glitch';
-
-  
-}
-
-@font-face{
-
-font-style: normal;
-font-weight: normal;
-font-family:'coding';
-src: url('fonts/coding.woff2');
-url:'coding';}
-
-
-.background {
-    background: linear-gradient(to right, rgb(255 255 255) 5%, rgb(0 0 0) 11%,rgb(255 255 255) 18%,rgb(0 0 0) 26%, rgb(255 255 255) 37%,rgb(0 0 0) 49%,rgb(255 255 255) 55%,
-     rgb(0 0 0) 65%,rgb(255 255 255) 76%, rgb(0 0 0) 81%,rgb(255 255 255) 88%,rgb(0 0 0) 92%,rgb(255 255 255) 94%,rgb(255 255 255) 95%,rgb(0 0 0) 96%,rgb(255 255 255) 97%,rgb(0 0 0) 99%,rgb(255 247 247) 85%);
-    background-size: 9% auto;
-  animation: shine 10s cubic-bezier(0.8, 1.65, 0, 0.09) infinite;
-}
-
-@keyframes shine {
-  to {
-    background-position: 150% center;
-  }
-}  
-
-.outer-container {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+  direction: rtl;
+  padding: 0; 
+  background-color: #222;
+  position: absolute; 
+  inset: 0; 
+  display: flex; 
+  place-content: baseline; 
+  align-items: center; 
+  overflow: hidden; 
   justify-content: center;
-  width: 100%;
+  min-height: 100vh; 
+  margin: 0;
 }
 
-@media only screen and (max-width: 600px) {
-  body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 60px;
-    
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
 
+@keyframes rotate {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
   }
 }
+
+#background {
+  --size: 500px;
+  --speed: 50S;
+  --easing: cubic-bezier(0.12, 0.21, 0.2, 0.2);
+  width: var(--size);
+  height: var(--size);
+  filter: blur(calc(var(--size) /2));
+  background-image: linear-gradient(rgb(255, 255, 255), #ffffff);
+  animation: rotate var(--speed) var(--easing) alternate infinite;
+  border-radius: 30% 70% 70% 30%/30% 30% 70% 90%;
+  position: fixed;
+  top: 36%;
+  left: 37%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+
+.closed-content {
+
+
+  direction: ltr;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  text-align: end;
+  text-transform: uppercase;
+  font-family:'Trebuchet MS','Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: rgb(22, 22, 22);
+  font-size: 1.5rem;
+  text-align: inherit;
+
+}
+
+a{
+
+color: rgba(255, 251, 6, 0.226);
+
+
+}
+

@@ -100,7 +100,7 @@ function generateTargets() {
     for (var i = 0; i < nTargets; i++) {
         const pos = generateStartPosition();
         const target = document.createElementNS("http://www.w3.org/2000/svg", "image");
-        target.setAttribute("href", "images/poop.svg");
+        target.setAttribute("href", "image/poop.svg");
         target.setAttribute("width", TARGET_SIZE);
         target.setAttribute("height", TARGET_SIZE);
         drawArea.appendChild(target);
