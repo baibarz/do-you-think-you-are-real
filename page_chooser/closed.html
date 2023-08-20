@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="closed.css" type="text/css" charset="utf-8" />   
+    <title>closed</title>
+</head>
+<body>
+    <div id="background"></div>
+
+    <div class="container-">
+        <div class="closed-content">
+            <h1>Website is closed</h1>
+            <p>opening hours: 8:00-16:00 all days </p>
+            <a href="shit.html" class="text-base shitlink">click here to play a game in the meantime</a>
+        </div>
+    </div>
+</body>
+<script>
+    $(document).ready(function () {
+        $(".container").ripples({
+            resolution: 256,
+            perturbance: 0.01,
+        });
+    });
+</script>
+
+</html>

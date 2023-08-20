@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "page-chooser"
+version = "0.1.0"
+description = ""
+authors = ["Mario Esteif <mario.esteif@gmail.com>"]
+readme = "README.md"
+packages = [{include = "do_you_think_you_are_real"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+Flask = "^2.3.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
