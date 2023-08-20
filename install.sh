@@ -1,1 +1,1 @@
-rsync -av --exclude='.gitignore' --exclude='install.sh' --exclude='config' . /var/www/html/doyouthinkyouarereal
+rsync -av --exclude='.gitignore' --exclude='.git' --exclude='install.sh' --exclude='config' . /var/www/html/doyouthinkyouarereal
