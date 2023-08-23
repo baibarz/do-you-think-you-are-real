@@ -14,7 +14,9 @@ RUN apt update \
 
 # apache config
 COPY config/apache2/ /etc/apache2/
-RUN ln /etc/apache2/sites-available/doyouthinkyouarereal.com.conf /etc/apache2/sites-enabled/doyouthinkyouarereal.com.conf
+RUN rm /etc/apache2/sites-enabled/000-default.conf \
+    && ln /etc/apache2/sites-available/doyouthinkyouarereal.com.conf \
+        /etc/apache2/sites-enabled/doyouthinkyouarereal.com.conf
 
 # static site files
 COPY static /var/www/html/doyouthinkyouarereal.com/static
