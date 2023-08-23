@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Starting apache2"
+echo "Starting apache2 for $APACHE2_SERVER_NAME"
 
 # environment variables for apache
 source /etc/apache2/envvars
