@@ -7,6 +7,7 @@ EXPOSE 80
 # install apache2
 RUN apt update \
     && apt install -y apache2 \
+    && a2enmod wsgi \
     # create site folder
     && mkdir /var/www/html/doyouthinkyouarereal.com \
     # create log folder
@@ -15,8 +16,7 @@ RUN apt update \
 # apache config
 COPY config/apache2/ /etc/apache2/
 RUN rm /etc/apache2/sites-enabled/000-default.conf \
-    && ln /etc/apache2/sites-available/doyouthinkyouarereal.com.conf \
-        /etc/apache2/sites-enabled/doyouthinkyouarereal.com.conf
+    && a2ensite doyouthinkyouarereal.com
 
 # static site files
 COPY static /var/www/html/doyouthinkyouarereal.com/static
