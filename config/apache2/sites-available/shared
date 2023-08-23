@@ -1,5 +1,0 @@
-ServerAdmin mario.esteif@gmail.com.com
-ServerName doyouthinkyouarereal.com  
-DocumentRoot /var/www/html/doyouthinkyouarereal.com/static
-ErrorLog /var/www/html/doyouthinkyouarereal.com/logs/error.log
-CustomLog /var/www/html/doyouthinkyouarereal.com/logs/access.log combined
