@@ -26,8 +26,7 @@ COPY config/apache2/ /etc/apache2/
 COPY static /var/www/html/doyouthinkyouarereal.com/static
 
 # python files
-COPY timecheck/timecheck.wsgi /var/www/wsgi/timecheck.wsgi
-COPY timecheck/timecheck /var/www/wsgi/timecheck
+COPY timecheck /var/www/wsgi
 
 # startup script
 COPY entrypoint.sh .

@@ -1,0 +1,13 @@
+.git
+.gitignore
+
+README.md
+
+__pycache__
+.pytest_cache
+
+.vscode
+
+tests
+poetry.lock
+pyproject.toml
