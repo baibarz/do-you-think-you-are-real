@@ -23,10 +23,10 @@ RUN apt update \
 COPY config/apache2/ /etc/apache2/
 
 # static site files
-COPY static /var/www/html/doyouthinkyouarereal.com/static
+COPY static/ /var/www/html/doyouthinkyouarereal.com/static/
 
 # python files
-COPY timecheck /var/www/wsgi
+COPY timecheck/ /var/www/wsgi/
 
 # startup script
 COPY entrypoint.sh .

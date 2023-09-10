@@ -1,14 +1,14 @@
-body { 
-    
+body {
+
     direction: rtl;
-    padding: 0; 
+    padding: 0;
     background-color: #222;
-    position: absolute; 
-    inset: 0; 
-    display: flex; 
-    place-content: baseline; 
-    align-items: center; 
-    overflow: hidden; 
+    position: absolute;
+    inset: 0;
+    display: flex;
+    place-content: baseline;
+    align-items: center;
+    overflow: hidden;
 }
 
 .container {
@@ -26,8 +26,9 @@ body {
     z-index: 2;
     LEFT: inherit;
 
-    }
-  .bnav a {
+}
+
+.bnav a {
     float: left;
     color: #000000;
     padding: 14px 16px;
@@ -49,6 +50,7 @@ body {
     0% {
         transform: rotate(0deg);
     }
+
     100% {
         transform: rotate(360deg);
     }
@@ -78,6 +80,6 @@ body {
     transform: translate(-50%, -50%);
     font-size: 50px;
     color: white;
-    text-align: center; 
-    font-family:'Trebuchet MS','Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }

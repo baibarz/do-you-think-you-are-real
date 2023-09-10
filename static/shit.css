@@ -1,15 +1,16 @@
-html, body {
-    margin:0; 
-    overflow:hidden;
-    padding:0;
+html,
+body {
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
 }
 
 svg {
-    bottom:0;
-    left:0;
-    position:fixed;
-    right:0;
-    top:0;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
 }
 
 .target-circle {
@@ -31,24 +32,31 @@ text {
     0% {
         opacity: 0;
     }
+
     14.29% {
         opacity: 1;
     }
+
     28.57% {
         opacity: 0;
     }
+
     42.86% {
         opacity: 1;
     }
+
     57.14% {
         opacity: 0;
     }
+
     71.43% {
         opacity: 1;
     }
+
     85.71% {
         opacity: 0;
     }
+
     100.00% {
         opacity: 1;
     }

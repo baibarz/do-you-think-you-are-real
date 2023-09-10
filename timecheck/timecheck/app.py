@@ -9,7 +9,7 @@ from flask import Flask, request
 
 app = Flask(__name__)
 
-CONTENT_PATH=Path(environ["TIMECHECK_CONTENT_PATH"])
+CONTENT_PATH = Path(environ["TIMECHECK_CONTENT_PATH"])
 FORCE_OPEN = environ.get("FORCE_OPEN", False)
 TIME_RE = compile("\d{1,2}:\d{1,2}:\d{1,2}\.?\d*")
 
@@ -29,6 +29,7 @@ class OpeningHoursChecker:
 
 
 checker = OpeningHoursChecker(8, 16)
+
 
 # Read a file in TIMECHECK_CONTENT_PATH
 def _read_private(name):

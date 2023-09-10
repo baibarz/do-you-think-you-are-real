@@ -1,15 +1,15 @@
 body {
   direction: rtl;
-  padding: 0; 
+  padding: 0;
   background-color: #222;
-  position: absolute; 
-  inset: 0; 
-  display: flex; 
-  place-content: baseline; 
-  align-items: center; 
-  overflow: hidden; 
+  position: absolute;
+  inset: 0;
+  display: flex;
+  place-content: baseline;
+  align-items: center;
+  overflow: hidden;
   justify-content: center;
-  min-height: 100vh; 
+  min-height: 100vh;
   margin: 0;
 }
 
@@ -21,10 +21,11 @@ body {
 
 @keyframes rotate {
   0% {
-      transform: rotate(0deg);
+    transform: rotate(0deg);
   }
+
   100% {
-      transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
@@ -55,17 +56,16 @@ body {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   text-align: end;
   text-transform: uppercase;
-  font-family:'Trebuchet MS','Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   color: rgb(22, 22, 22);
   font-size: 1.5rem;
   text-align: inherit;
 
 }
 
-a{
+a {
 
-color: rgba(255, 251, 6, 0.226);
+  color: rgba(255, 251, 6, 0.226);
 
 
 }
-
