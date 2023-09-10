@@ -1,15 +1,19 @@
 [tool.poetry]
-name = "page-chooser"
+name = "timecheck"
 version = "0.1.0"
 description = ""
 authors = ["Mario Esteif <mario.esteif@gmail.com>"]
 readme = "README.md"
-packages = [{include = "do_you_think_you_are_real"}]
+packages = [{include = "timecheck"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
 Flask = "^2.3.2"
 
+[tool.poetry.dev-dependencies]
+pytest = "^7.4.2"
+black = "^23.9.0"
+pylint = "^2.17.5"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"

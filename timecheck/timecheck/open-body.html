@@ -1,0 +1,34 @@
+<div class="bnav">
+    <a href="open.html">HOME</a>
+    <a href="studio.html">STUDIO</a>
+
+</div>
+<div id="background"></div>
+<div id="text-container"></div>
+<script>
+    const textArray = [
+        "DO YOU THINK YOU ARE REAL",
+        "¿CREES QUE ERES REAL",
+        "TROR DU AT DU ER EKTE",
+        "你认为你是真实的吗",
+        "PENSEZ VOUS QUE VOUS ÊTES RÉEL",
+        "MYŚLISZ ŻE JESTEŚ PRAWDZIWY",
+        "PENSI DI ESSERE REALE",
+        "ΝΟΜΙΖΕΙΣ ΟΤΙ ΕΙΣΑΙ ΠΡΑΓΜΑΤΙΚΟΣ",
+        "自分が本物だと思いますか",
+        "هل تعتقد أنك حقيقي؟",
+        "ВЫ ДУМАЕТЕ ЧТО ТЫ НАСТОЯЩИЙ",
+        "Glaubst du dass du echt bist?",
+        "TROR DU AT DU ER EKTE"
+    ];
+
+    const textContainer = document.getElementById("text-container");
+    let currentIndex = 0;
+
+    function changeLanguage() {
+        textContainer.textContent = textArray[currentIndex];
+        currentIndex = (currentIndex + 1) % textArray.length;
+    }
+
+    setInterval(changeLanguage, 1500); // Change text every 1,5 
+</script>

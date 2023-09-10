@@ -1,28 +1,37 @@
 FROM debian:bookworm-20230814-slim
 
-# Container must be run with environment variable APACHE2_SERVER_NAME
-
 EXPOSE 80
+EXPOSE 443
+
+ENV TIMECHECK_CONTENT_PATH=/var/www/wsgi/timecheck
+ENV APACHE2_SERVER_NAME=localhost
 
 # install apache2
 RUN apt update \
-    && apt install -y apache2 \
-    && a2enmod wsgi \
-    # create site folder
+    && apt install -y \
+        apache2 \
+        libapache2-mod-wsgi-py3 \
+        python3-flask \
+    && rm /etc/apache2/sites-enabled/000-default.conf \
+    # create directories for site, wsgi, and logging
     && mkdir /var/www/html/doyouthinkyouarereal.com \
-    # create log folder
-    && mkdir /var/log/apache2/doyouthinkyouarereal.com
+        /var/www/wsgi \
+        /var/www/wsgi/timecheck \
+        /var/log/apache2/doyouthinkyouarereal.com
 
 # apache config
 COPY config/apache2/ /etc/apache2/
-RUN rm /etc/apache2/sites-enabled/000-default.conf \
-    && a2ensite doyouthinkyouarereal.com
 
 # static site files
 COPY static /var/www/html/doyouthinkyouarereal.com/static
 
+# python files
+COPY timecheck/timecheck.wsgi /var/www/wsgi/timecheck.wsgi
+COPY timecheck/timecheck /var/www/wsgi/timecheck
+
 # startup script
 COPY entrypoint.sh .
-RUN chmod +x entrypoint.sh
+RUN chmod +x entrypoint.sh \
+    && a2ensite doyouthinkyouarereal.com
 
 ENTRYPOINT [ "./entrypoint.sh" ]
