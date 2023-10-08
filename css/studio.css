@@ -18,7 +18,6 @@ body {
     width: calc(50% - 30px);
     margin: 10px;
     cursor: pointer;
-    border: solid  #000000 1px;
     -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
     filter: grayscale(30%);    
    
@@ -83,3 +82,25 @@ body {
     font-size: 30px;
     margin-left: 50px;
   }
+
+  #bottom-link {
+    position: absolute;
+    bottom: 16px; /* Adjust this value to control the vertical position */
+    left: 37px; /* Adjust this value to control the horizontal position */
+    font-size: 8px; /* Adjust the font size */
+z-index: 2;
+    font-family: 'Libre Barcode EAN13 Text', cursive;
+    font-family: 'Press Start 2P', cursive;
+  
+   
+  }
+  
+  #bottom-link a {
+    text-decoration: none;
+    color: #333; /* Adjust the link color */
+  }
+  
+  #bottom-link a:hover {
+    color: #ffffff; /* Adjust the link color on hover */
+  }
+  
