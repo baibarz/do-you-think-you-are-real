@@ -1,11 +1,12 @@
 const CURSOR_PUSH_STRENGTH = 3000;
 const EPSILON = 1;
 const FRICTION_DECAY = 0.995;
-const R_VICTORY_CIRCLE = 200;
-const REPULSE_PUSH_STRENGTH = 1000;
-const TARGET_SIZE = 120;
+const R_VICTORY_CIRCLE = 270;
+const REPULSE_PUSH_STRENGTH = 250;
+const TARGET_SIZE = 100;
 const TICK_INTERVAL = 50;
 const V_INIT = 5;
+
 
 const MARGIN = TARGET_SIZE / 2;
 
@@ -16,6 +17,7 @@ var mouseCoords;
 var nTargets;
 var nextTick;
 var targets;
+var edgeLength;
 
 /* 
     Some basic vector functions 
@@ -67,6 +69,7 @@ function vecToString(v) {
     Game logic
 */
 
+
 function init() {
     drawArea = document.getElementById("DrawArea");
     clientSize = {
@@ -76,12 +79,21 @@ function init() {
     clientCenter = vecMult(clientSize, 1 / 2);
     nTargets = 2;
     // Draw victory circle
-    const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-    circle.setAttribute("cx", clientCenter.x);
-    circle.setAttribute("cy", clientCenter.y);
-    circle.setAttribute("r", R_VICTORY_CIRCLE);
-    circle.setAttribute("class", "target-circle");
-    drawArea.appendChild(circle);
+    const square = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+    edgeLength = Math.min(clientSize.x, clientSize.y) / 2;
+    square.setAttribute("width", edgeLength);
+    square.setAttribute("height", edgeLength);
+    square.setAttribute("x", (clientSize.x - edgeLength) / 2);
+    square.setAttribute("y", (clientSize.y - edgeLength) / 2);
+    square.setAttribute("id", "square");
+    square.setAttribute("class", "target-circle");
+    drawArea.appendChild(square);
+
+    const frame = document.getElementById("frame");
+    frame.setAttribute("width", edgeLength);
+    frame.setAttribute("height", edgeLength);
+    frame.setAttribute("left", (clientSize.x - edgeLength) / 2);
+    frame.setAttribute("top", (clientSize.y - edgeLength) / 2);
 
     // Center intro text
     const introText = document.getElementById("IntroText");
@@ -230,12 +242,35 @@ function setNextTick() {
 }
 
 function checkVictory() {
-    const outside = targets.filter(t => vecDist(t.pos, clientCenter) > R_VICTORY_CIRCLE);
+    const outside = targets.filter(t => isOutside(t.pos));
     if (outside.length > 0) {
         return false;
     }
     return true;
 }
+
+function isOutside(targetPosition) {
+    var square = document.getElementById("square")
+    if (targetPosition.x <= parseFloat(square.getAttribute("x"))) {
+        return true;
+    }
+
+    if (targetPosition.y <= parseFloat(square.getAttribute("y"))) {
+        return true;
+    }
+
+    if (targetPosition.x >= (parseFloat(square.getAttribute("x")) + edgeLength)) {
+        return true;
+    }
+
+    if (targetPosition.y >= (parseFloat(square.getAttribute("y")) + edgeLength)) {
+        return true;
+    }
+    
+    return false;
+}
+
+
 
 function handleMouseMove(evt) {
     mouseCoords = {

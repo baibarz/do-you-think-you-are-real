@@ -102,3 +102,13 @@ body {
 #bottom-link a:hover {
   color: #ffffff; /* Adjust the link color on hover */
 }
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+

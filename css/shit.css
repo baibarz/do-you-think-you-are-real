@@ -1,8 +1,16 @@
-html, body {
-    margin:0; 
-    overflow:hidden;
-    padding:0;
+body {
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    
+
 }
+
 
 svg {
     bottom:0;
@@ -10,13 +18,30 @@ svg {
     position:fixed;
     right:0;
     top:0;
+    
+}
+
+.text{
+    position: relative;
+    text-align: left;
+
+}
+
+#frame {
+    
+    position: static; 
+    box-shadow: -15px -15px 20px  grey;
+    z-index: -3;
+
 }
 
 .target-circle {
-    opacity: 70%;
+    opacity: 0%;
     stroke: forestgreen;
     stroke-width: 15;
     fill: none;
+    
+
 }
 
 text {
@@ -25,6 +50,9 @@ text {
     font-size: 500%;
     font-weight: bold;
     opacity: 0;
+    
+
+ justify-content: center;
 }
 
 @keyframes intro-flash {
