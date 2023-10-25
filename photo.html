@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="/css/photo.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Handjet:wght@100;300&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Barcode+EAN13+Text&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <title>Studio</title>
+</head>
+<body>
+
+  
+  <div class="gallery">
+    <img src="/images/21.jpg" alt="Photo " onclick="openImage('/images/21.jpg')">
+    <img src="/images/2.jpg" alt="Photo " onclick="openImage('/images/2.jpg')">
+    <img src="/images/3.jpg" alt="Photo " onclick="openImage('/images/3.jpg')">
+    <img src="/images/4.jpg" alt="Photo " onclick="openImage('/images/4.jpg')">
+    <img src="/images/5.jpg" alt="Photo " onclick="openImage('/images/5.jpg')">
+    <img src="/images/6.jpg" alt="Photo " onclick="openImage('/images/6.jpg')">
+    <img src="/images/9.jpg" alt="Photo " onclick="openImage('/images/9.jpg')">
+    <img src="/images/11.jpg" alt="Photo " onclick="openImage('/images/11.jpg')">
+    <img src="/images/12.jpg" alt="Photo " onclick="openImage('/images/12.jpg')">
+    <img src="/images/13.jpg" alt="Photo " onclick="openImage('/images/13.jpg')">
+    <img src="/images/15.jpg" alt="Photo " onclick="openImage('/images/15.jpg')">
+    <img src="/images/16.jpg" alt="Photo " onclick="openImage('/images/16.jpg')">
+    <img src="/images/17.jpg" alt="Photo " onclick="openImage('/images/17.jpg')">
+    <img src="/images/18.jpg" alt="Photo " onclick="openImage('/images/18.jpg')">
+    <img src="/images/19.jpg" alt="Photo " onclick="openImage('/images/19.jpg')">
+    <img src="/images/20.png" alt="Photo " onclick="openImage('/images/20.png')">
+
+
+
+  </div> 
+
+
+
+  <button class="openbtn" onclick="openNav()">&#9776;</button>
+
+  <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="index.html">HOME</a>
+      <a href="photo.html">STUDIO</a>
+      <a href="text.html">TEXT</a>
+      <a href="shit.html">GET YOUR SHIT TOGETHER</a>
+
+
+      <script>
+        function openNav() {
+          document.getElementById("mySidenav").style.width = "250px";
+        }
+      
+        function closeNav() {
+          document.getElementById("mySidenav").style.width = "0";
+        }
+      </script>
+  <script>
+    function openImage(imageUrl) {
+      window.open(imageUrl, '_blank');
+    }
+  </script>
+
+<script>
+
+  function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+      document.getElementById("bottom-link").style.display = "block"; // Show the link
+  }
+  
+  function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+      document.getElementById("bottom-link").style.display = "none"; // Hide the link
+  }
+  
+    </script>
+
+</body>
+</html>
