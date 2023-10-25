@@ -1,6 +1,6 @@
 body { 
     
-    background-color: #c97d7d;
+    background-color: #ffffff;
 }
 
 .container {
@@ -32,7 +32,7 @@ body {
     border: none;
     padding: 10px 15px;
     position: fixed;
-    top: 6px;
+    top: 7px;
     left: 10px;
     
 
