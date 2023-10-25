@@ -32,7 +32,7 @@ body {
     border: none;
     padding: 10px 15px;
     position: fixed;
-    top: 6px;
+    top: 7px;
     left: 10px;
     
 
@@ -80,28 +80,6 @@ body {
     font-size: 30px;
     margin-left: 50px;
   }
-
-  /* Style for the bottom link */
-#bottom-link {
-  position: absolute;
-  bottom: 16px; /* Adjust this value to control the vertical position */
-  left: 37px; /* Adjust this value to control the horizontal position */
-  font-size: 8px; /* Adjust the font size */
-  z-index: 2;
-  font-family: 'Libre Barcode EAN13 Text', cursive;
-  font-family: 'Press Start 2P', cursive;
-
- 
-}
-
-#bottom-link a {
-  text-decoration: none;
-  color: #333; /* Adjust the link color */
-}
-
-#bottom-link a:hover {
-  color: #ffffff; /* Adjust the link color on hover */
-}
 
 @keyframes rotate {
   0% {
