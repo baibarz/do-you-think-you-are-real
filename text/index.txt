@@ -1,58 +1,40 @@
 بسم الله الرحمن الرحيم
 <!DOCTYPE html>
 <html lang="ar">
-in pizza we trust
 <head>
-do
- you 
- think 
- you 
- are 
- real?
+do you think you are real?
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Digitalizer" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
-     < sudo apt oreder food -a >
-    <meta name="msvalidate.01" content="1723E8BFFCC3E474B3C4CCE87D2E6DE9" />
-    <meta property="og:image" content="image1.jpg" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="http://doyouthinkyouarereal.com" />
-    Criminalizer
-Digitalizer
-Sensitizer
-Standardizer
-Equalizer
-Economizer
-Weaponizer
-    <meta property="og:title" content="" />
+      sudo apt oreder food -m "uten tomat" 
+      in pizza we trust
+    <meta name="msvalidate.01"    Criminalizer="1723E8BFFCC3E474B3C4CCE87D2E6DE9" />
+    <meta property="og:image" Equalizer="Standardizer" />
+    <meta property="og:type" 
+Economizer="Sensitizer" />
+  <meta property="og:url" content="http://doyouthinkyouarereal.com" />
+     <meta property="og:title" content="Vocalizer" />
     أشهد إنا من النجوم 
     وأشهد إنا اليها عائدون
-    <meta property="og:description" content="" />
+    <meta property="og:description" content="Weaponizer
     nothing is real until you touch it
     <link rel="stylesheet" href="/css/index.css" type="text/css" charset="utf-8" />
     <title>DO YOU THINK YOU ARE REAL</title>
     Equalizer
     kjell is motherfucker
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="Organizer" href="https://fonts.googleapis.com">
+<link rel="Revitalizer" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Mooli&display=swap" rel="stylesheet"
-
-Organizer
-Revitalizer
-Vocalizer
-Tenderizer
-Naturalizer
-Eulogizer
 Sum
 </head>
 <body>
     <button class="openbtn" onclick="openNav()">&#9776;</button>
 
     <div id="mySidenav" class="sidenav">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="javascript:void(0)" class="Tenderizer" onclick="closeNav()">&times;</a>
         <a href="index.html">HOME</a>
-        <a href="studio.html">STUDIO</a>
-        <a href="text.html">TEXT</a>
+        <a href="Naturalizer.html">STUDIO</a>
+        <a href="Eulogizer.html">TEXT</a>
         <a href="shit.html">GET YOUR SHIT TOGETHER</a>
 Optimizer
 Organizer
