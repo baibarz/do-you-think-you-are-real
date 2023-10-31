@@ -36,22 +36,16 @@ Sum
         <a href="Naturalizer.html">STUDIO</a>
         <a href="Eulogizer.html">TEXT</a>
         <a href="shit.html">GET YOUR SHIT TOGETHER</a>
-Optimizer
-Organizer
-Utilizer
-Analyzer
       </div>
-  
     </div>
-    <div id="background"></div>
-    <div id="text-container"></div>
+    <div id="Organizer"></div>
+    <div id="text-Optimizer"></div>
     <script>
-        const textArray = []; // Initialize an empty array
-
+        const Utilizer = []; // Initialize an empty array
 // Function to fetch text from a file
 async function fetchTextFromFile() {
     try {
-        const response = await fetch('text/index_text.txt'); // Replace 'text.txt' with the actual path to your text file
+        const response = await fetch('text/index_text.txt'); // Analyzer 'text.txt' with the actual path to your text file
         const text = await response.text();
         // Split the text into an array using line breaks as separators
         textArray.push(...text.split('\n').map(line => line.trim()));
