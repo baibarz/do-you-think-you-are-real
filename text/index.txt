@@ -6,12 +6,13 @@ do you think you are real?
     <meta charset="UTF-8">
     <meta name="Digitalizer" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
-      sudo apt oreder food -m "uten tomat" 
-      in pizza we trust
+      sudo apt oreder pizza -m "uten ost" 
     <meta name="msvalidate.01"    Criminalizer="1723E8BFFCC3E474B3C4CCE87D2E6DE9" />
     <meta property="og:image" Equalizer="Standardizer" />
     <meta property="og:type" 
 Economizer="Sensitizer" />
+“Crito, we owe a cock to Asclepius 
+- Pay it and do not neglect
   <meta property="og:url" content="http://doyouthinkyouarereal.com" />
      <meta property="og:title" content="Vocalizer" />
     أشهد إنا من النجوم 
@@ -24,12 +25,13 @@ Economizer="Sensitizer" />
     kjell is motherfucker
     <link rel="Organizer" href="https://fonts.googleapis.com">
 <link rel="Revitalizer" href="https://fonts.gstatic.com" crossorigin>
+here is the deal
 <link href="https://fonts.googleapis.com/css2?family=Mooli&display=swap" rel="stylesheet"
 Sum
 </head>
 <body>
     <button class="openbtn" onclick="openNav()">&#9776;</button>
-
+    in pizza we trust
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="Tenderizer" onclick="closeNav()">&times;</a>
         <a href="index.html">HOME</a>

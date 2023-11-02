@@ -1,10 +1,10 @@
 body { 
     
-    background-image: url("images/44.jpg");
+  background-color: ;
 }
 
 .container {
-    max-width: 850px;
+    max-width: 830px;
     margin: 0 auto;
     padding: 20px;
 }
@@ -21,12 +21,11 @@ body {
     color: rgb(0, 0, 0);
     text-align: center; 
     filter: blur(2px);
-    font-size: 50px;
  
 }
 
 .openbtn {
-    font-size: 20px;
+    font-size: 30px;
     cursor: pointer;
     background-color: #6C757D;
     border: none;
@@ -35,14 +34,10 @@ body {
     top: 7px;
     left: 10px;
     
-
-
   }
 
-  /* Style the side navigation menu */
   .sidenav {
     height: 100%;
-    width: 0;
     position: fixed;
     z-index: 1;
     top: 0;
