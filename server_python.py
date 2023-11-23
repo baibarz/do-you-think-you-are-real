@@ -1,13 +1,13 @@
 import http.server
 import socketserver
 import os
-from datetime import datetime, time, timedelta
+from datetime import datetime, time
 
 # Set the directory where your website files are located
-website_directory = r"C:\Users\mmste\Documents\do-you-think-you-are-real\html"
+website_directory = "html"
 
 # in ports we trust
-port = 666
+port = 2828
 
 # Allow connections from any IP address
 handler = http.server.SimpleHTTPRequestHandler
@@ -19,7 +19,11 @@ class MyTCPServer(socketserver.TCPServer):
 # Custom handler to serve different versions based on time
 class MyRequestHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
-        now = datetime.now().time()
+        client_time_str = self.headers.get('Client-Time')  # Get the client's time from the headers
+        if client_time_str:
+            client_time = datetime.strptime(client_time_str, '%Y-%m-%d %H:%M:%S').time()
+        else:
+            client_time = datetime.now().time()
 
         # Define the opening hours
         opening_hours = {
@@ -37,8 +41,8 @@ class MyRequestHandler(http.server.SimpleHTTPRequestHandler):
         if current_day in opening_hours:
             opening_start, opening_end = opening_hours[current_day]
 
-            # Check if the current time is within opening hours
-            if opening_start <= now < opening_end:
+            # Check if the client's time is within opening hours
+            if opening_start <= client_time <= opening_end:
                 # Inside opening hours
                 self.directory = "day_version"
             else:
