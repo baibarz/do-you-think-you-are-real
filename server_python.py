@@ -29,8 +29,8 @@ class MyRequestHandler(http.server.SimpleHTTPRequestHandler):
         opening_hours = {
             "monday": (time(8, 0), time(20, 0)),
             "tuesday": (time(8, 0), time(20, 0)),
-            "wednesday": (time(9, 0), time(20, 0)),
-            "thursday": (time(8, 0), time(16, 0)),
+            "wednesday": (time(8, 0), time(20, 0)),
+            "thursday": (time(8, 0), time(20, 0)),
             "friday": (time(8, 0), time(20, 0)),
             "saturday": (time(8, 0), time(18, 0)),
             "sunday": (time(0, 0), time(0, 0)),  # Closed on Sunday
