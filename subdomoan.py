@@ -32,9 +32,9 @@ class UnderConstructionHandler(SimpleHTTPRequestHandler):
         self.wfile.write(b"</div>")
         self.wfile.write(b"</body></html>")
 
-port = 2828
+port = 5001
 
-httpd = TCPServer(("localhost", port), UnderConstructionHandler)
+httpd = TCPServer(("192.168.1.99", port), UnderConstructionHandler)
 
 print(f"Serving on port {port}")
 httpd.serve_forever()
