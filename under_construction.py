@@ -34,7 +34,7 @@ class UnderConstructionHandler(SimpleHTTPRequestHandler):
         self.wfile.write(b"</body></html>")
 
 # Set the port number
-port = 666
+port = 2828
 
 # Create a web server and specify the handler
 httpd = TCPServer(("localhost", port), UnderConstructionHandler)
