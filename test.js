@@ -38,6 +38,9 @@ const server = http.createServer((req, res) => {
     filePath = path.join(__dirname, websiteDirectory, directory, normalizedUrl);
   }
 
+  // Log information about the request
+  console.log(`Request from ${req.connection.remoteAddress} for URL: ${req.url}`);
+
   fs.readFile(filePath, (err, data) => {
     if (err) {
       res.writeHead(404, { 'Content-Type': 'text/plain' });
