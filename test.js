@@ -34,7 +34,8 @@ const server = http.createServer((req, res) => {
     filePath = path.join(__dirname, websiteDirectory, directory, 'index.html');
   } else {
     // Construct the file path for other URLs
-    filePath = path.join(__dirname, websiteDirectory, directory, req.url.replace(/\//g, path.sep));
+    const normalizedUrl = req.url.replace(/\//g, path.sep);
+    filePath = path.join(__dirname, websiteDirectory, directory, normalizedUrl);
   }
 
   fs.readFile(filePath, (err, data) => {
