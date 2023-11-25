@@ -1,0 +1,21 @@
+Traceback (most recent call last):
+  File "/home/website/do-you-think-you-are-real/main_server.py", line 51, in <module>
+    with MyTCPServer(("", port), MyRequestHandler) as httpd:
+  File "/usr/lib/python3.9/socketserver.py", line 452, in __init__
+    self.server_bind()
+  File "/usr/lib/python3.9/socketserver.py", line 466, in server_bind
+    self.socket.bind(self.server_address)
+OSError: [Errno 98] Address already in use
+192.168.1.99 - - [24/Nov/2023 15:01:35] "GET / HTTP/1.1" 200 -
+192.168.1.99 - - [24/Nov/2023 15:01:35] "GET /favicon.ico HTTP/1.1" 200 -
+192.168.1.99 - - [24/Nov/2023 15:06:42] "GET / HTTP/1.1" 200 -
+192.168.1.99 - - [24/Nov/2023 15:06:43] "GET / HTTP/1.1" 200 -
+192.168.1.99 - - [24/Nov/2023 15:06:46] "GET / HTTP/1.1" 200 -
+Traceback (most recent call last):
+  File "/home/website/do-you-think-you-are-real/main_server.py", line 51, in <module>
+    with MyTCPServer(("192.168.1.99", port), MyRequestHandler) as httpd:
+  File "/usr/lib/python3.9/socketserver.py", line 452, in __init__
+    self.server_bind()
+  File "/usr/lib/python3.9/socketserver.py", line 466, in server_bind
+    self.socket.bind(self.server_address)
+OSError: [Errno 98] Address already in use
