@@ -18,7 +18,7 @@ const server = http.createServer((req, res) => {
     thursday: [8 * 60, 20 * 60],
     friday: [8 * 60, 20 * 60],
     saturday: [8 * 60, 16 * 60],
-    sunday: [0, 0],
+    sunday: [8 * 60, 16 * 60],
   };
 
   const currentDay = new Date().toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase();
@@ -38,7 +38,7 @@ const server = http.createServer((req, res) => {
     filePath = path.join(__dirname, websiteDirectory, directory, normalizedUrl);
   }
 
-  // Log information about the request
+  // Log information about the request, including the client's IP address
   console.log(`Request from ${req.connection.remoteAddress} for URL: ${req.url}`);
 
   fs.readFile(filePath, (err, data) => {
