@@ -48,6 +48,6 @@ class MyRequestHandler(http.server.SimpleHTTPRequestHandler):
 
 os.chdir(website_directory)
 
-with MyTCPServer(("", port), MyRequestHandler) as httpd:
+with MyTCPServer(("192.168.1.99", port), MyRequestHandler) as httpd:
     print(f"Serving on port {port}")
     httpd.serve_forever()
