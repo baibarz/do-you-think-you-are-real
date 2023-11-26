@@ -286,7 +286,7 @@ const textArray = [];
 // Function to fetch text from a file
 async function fetchTextFromFile() {
     try {
-        const response = await fetch('text/shit.txt'); 
+        const response = await fetch('shit.txt'); 
         const text = await response.text();
         // Split the text into an array using line breaks as separators
         textArray.push(...text.split('\n').map(line => line.trim()));

@@ -25,11 +25,12 @@ fetchTextFromFile().then(() => {
     setInterval(changeLanguage, 2000); // Change text every 1.5 seconds
 });
 
+// js/index.js
 
-  function openNav() {
-    document.getElementById("mySidenav").style.width = "260px";
-  }
+function openNav() {
+  document.getElementById("MYSIDE").style.width = "250px";
+}
 
-  function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-  }
+function closeNav() {
+  document.getElementById("MYSIDE").style.width = "0";
+}

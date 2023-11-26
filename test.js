@@ -20,8 +20,9 @@ const server = http.createServer((req, res) => {
     wednesday: [8 * 60, 20 * 60],
     thursday: [8 * 60, 20 * 60],
     friday: [8 * 60, 20 * 60],
-    saturday: [8 * 60, 23 * 60],
-    sunday: [0, 0], // Updated opening hours for Sunday
+   
+   //sunday: [0, 0], // Updated opening hours for Sunday
+    sunday : [8 * 60, 23 * 60],
   };
 
   const currentDay = new Date().toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase();
@@ -74,6 +75,8 @@ const getContentType = (req, filePath) => {
     '.png': 'image/png',
     '.jpg': 'image/jpg',
     '.gif': 'image/gif',
+    '.svg': 'image/svg+xml',
+    '.txt': 'text/plain',
   };
 
   return mimeTypes[extname] || 'application/octet-stream';
