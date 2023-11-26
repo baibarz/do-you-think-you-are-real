@@ -18,16 +18,29 @@
         .opening-hours {
             text-align: center;
             margin-top: 20px;
+            
         }
         .additional-info {
             margin-top: 20px;
             font-size: 14px;
+            display:contents;
         }
         a {
             color: #007BFF;
             text-decoration: none;
             font-weight: bold;
         }
+
+        #time-left {
+
+            margin: 0;
+            font-size: 14px;
+
+
+
+        }
+
+
     </style>
 </head>
 <body>
@@ -35,14 +48,53 @@
     <h1>Opening Hours</h1>
 
     <div class="opening-hours">
-        <p><strong>Monday - Friday:</strong> 8:00 AM - 20:00 PM</p>
-        <p><strong>Saturday:</strong> 10:00 AM - 18:00 PM</p>
+        <p><strong>Monday - Friday:</strong> <span id="mondayFriday"></span></p>
+        <p><strong>Saturday:</strong> <span id="saturday"></span></p>
         <p><strong>Sunday:</strong> Closed</p>
+        <p id="time-left"></p>
     </div>
 
     <div class="additional-info">
         <p>come back later or try, <a href="shit/shit.html">get your shit together</a>.</p>
     </div>
+
+    <script>
+        function formatTime(hour, minute) {
+            return `${hour.toString().padStart(2, '0')}:${minute.toString().padStart(2, '0')}`;
+        }
+
+        function updateOpeningHours() {
+            const now = new Date();
+
+            const openingTimes = {
+                mondayFriday: { open: 8, close: 20 },
+                saturday: { open: 10, close: 18 }
+            };
+
+            const currentDay = now.getDay();
+            const nextOpeningTime = openingTimes[currentDay === 0 ? 'mondayFriday' : 'saturday'].open;
+
+            const openingDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), nextOpeningTime, 0, 0);
+            if (now >= openingDate) {
+                openingDate.setDate(openingDate.getDate() + 1); // Move to the next day if already past opening time
+            }
+
+            const timeLeft = openingDate - now;
+            const hoursLeft = Math.floor(timeLeft / (1000 * 60 * 60));
+            const minutesLeft = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+
+            document.getElementById('mondayFriday').textContent = `${formatTime(openingTimes.mondayFriday.open, 0)} AM - ${formatTime(openingTimes.mondayFriday.close, 0)} PM`;
+            document.getElementById('saturday').textContent = `${formatTime(openingTimes.saturday.open, 0)} AM - ${formatTime(openingTimes.saturday.close, 0)} PM`;
+
+            document.getElementById('time-left').textContent = `the website will open in: ${hoursLeft}:${minutesLeft}:${Math.floor((timeLeft % (1000 * 60)) / 1000)} `;
+        }
+
+        // Update the opening hours every second
+        setInterval(updateOpeningHours, 1000);
+
+        // Initial update
+        updateOpeningHours();
+    </script>
 
 </body>
 </html>

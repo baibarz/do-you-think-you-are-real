@@ -21,7 +21,7 @@ const server = http.createServer((req, res) => {
     thursday: [8 * 60, 20 * 60],
     friday: [8 * 60, 20 * 60],
     saturday: [8 * 60, 23 * 60],
-    sunday: [8 * 60, 16 * 60],
+    sunday: [0, 0], // Updated opening hours for Sunday
   };
 
   const currentDay = new Date().toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase();
