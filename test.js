@@ -5,14 +5,14 @@ const path = require('path');
 const websiteDirectory = "html";
 const port = 2828;
 
-// Set the desired timezone
-process.env.TZ = 'UTC';
+// Set the desired timezone for the server
+process.env.TZ = 'Europe/Oslo'; // Set to the appropriate timezone for Norway
 
 const server = http.createServer((req, res) => {
   const clientTimeStr = req.headers['client-time'];
   const clientTime = clientTimeStr
-    ? new Date(clientTimeStr).getUTCHours() * 60 + new Date(clientTimeStr).getUTCMinutes()
-    : new Date().getUTCHours() * 60 + new Date().getUTCMinutes();
+    ? new Date(clientTimeStr).getHours() * 60 + new Date(clientTimeStr).getMinutes()
+    : new Date().getHours() * 60 + new Date().getMinutes();
 
   const openingHours = {
     monday: [8 * 60, 20 * 60],
@@ -20,7 +20,7 @@ const server = http.createServer((req, res) => {
     wednesday: [8 * 60, 20 * 60],
     thursday: [8 * 60, 20 * 60],
     friday: [8 * 60, 20 * 60],
-    saturday: [8 * 60, 16 * 60],
+    saturday: [8 * 60, 23 * 60],
     sunday: [8 * 60, 16 * 60],
   };
 
@@ -28,6 +28,9 @@ const server = http.createServer((req, res) => {
   const [openingStart, openingEnd] = openingHours[currentDay] || [0, 0];
 
   const directory = clientTime >= openingStart && clientTime <= openingEnd ? 'day_version' : 'night_version';
+
+  // Get the current real time in Norwegian format
+  const currentTime = new Date().toLocaleTimeString('nb-NO', { timeZone: 'Europe/Oslo' });
 
   let filePath;
 
@@ -43,8 +46,10 @@ const server = http.createServer((req, res) => {
 
   // Log information about the request, including the client's IP address
   console.log(`Request from ${req.connection.remoteAddress} for URL: ${req.url}`);
-  console.log('Client Time:', clientTime);
+  console.log('Client Time (in minutes):', clientTime);
+  console.log('Client Time (formatted):', formatClientTime(clientTime));
   console.log('Current Day:', currentDay);
+  console.log('Current Real Time:', currentTime);
   console.log('Requested URL:', req.url);
   console.log('Constructed FilePath:', filePath);
 
@@ -72,6 +77,13 @@ const getContentType = (req, filePath) => {
   };
 
   return mimeTypes[extname] || 'application/octet-stream';
+};
+
+// Function to format client time into hours and minutes
+const formatClientTime = (clientTime) => {
+  const hours = Math.floor(clientTime / 60);
+  const minutes = clientTime % 60;
+  return `${hours} hours and ${minutes} minutes`;
 };
 
 server.listen(port, () => {
