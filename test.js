@@ -5,11 +5,14 @@ const path = require('path');
 const websiteDirectory = "html";
 const port = 2828;
 
+// Set the desired timezone
+process.env.TZ = 'UTC';
+
 const server = http.createServer((req, res) => {
   const clientTimeStr = req.headers['client-time'];
   const clientTime = clientTimeStr
-    ? new Date(clientTimeStr).getHours() * 60 + new Date(clientTimeStr).getMinutes()
-    : new Date().getHours() * 60 + new Date().getMinutes();
+    ? new Date(clientTimeStr).getUTCHours() * 60 + new Date(clientTimeStr).getUTCMinutes()
+    : new Date().getUTCHours() * 60 + new Date().getUTCMinutes();
 
   const openingHours = {
     monday: [8 * 60, 20 * 60],
@@ -40,6 +43,10 @@ const server = http.createServer((req, res) => {
 
   // Log information about the request, including the client's IP address
   console.log(`Request from ${req.connection.remoteAddress} for URL: ${req.url}`);
+  console.log('Client Time:', clientTime);
+  console.log('Current Day:', currentDay);
+  console.log('Requested URL:', req.url);
+  console.log('Constructed FilePath:', filePath);
 
   fs.readFile(filePath, (err, data) => {
     if (err) {
@@ -63,9 +70,6 @@ const getContentType = (req, filePath) => {
     '.jpg': 'image/jpg',
     '.gif': 'image/gif',
   };
-
-  console.log('Requested URL:', req.url);
-  console.log('Constructed FilePath:', filePath);
 
   return mimeTypes[extname] || 'application/octet-stream';
 };
