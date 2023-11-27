@@ -45,7 +45,7 @@
 </head>
 <body>
 
-    <h1>Opening Hours</h1>
+    <h1>Opening Hours (UTC+1)</h1>
 
     <div class="opening-hours">
         <p><strong>Monday - Friday:</strong> <span id="mondayFriday"></span></p>
@@ -55,7 +55,7 @@
     </div>
 
     <div class="additional-info">
-        <p>come back later or try, <a href="shit/shit.html">get your shit together</a>.</p>
+        <p>come back later or try, <a href="game/">get your shit together</a>.</p>
     </div>
 
     <script>
@@ -83,7 +83,7 @@
             const hoursLeft = Math.floor(timeLeft / (1000 * 60 * 60));
             const minutesLeft = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
 
-            document.getElementById('mondayFriday').textContent = `${formatTime(openingTimes.mondayFriday.open, 0)} AM - ${formatTime(openingTimes.mondayFriday.close, 0)} PM `;
+            document.getElementById('mondayFriday').textContent = `${formatTime(openingTimes.mondayFriday.open, 0)} AM - ${formatTime(openingTimes.mondayFriday.close, 0)} PM`;
             document.getElementById('saturday').textContent = `${formatTime(openingTimes.saturday.open, 0)} AM - ${formatTime(openingTimes.saturday.close, 0)} PM`;
 
             document.getElementById('time-left').textContent = `the website will open in: ${hoursLeft}:${minutesLeft}:${Math.floor((timeLeft % (1000 * 60)) / 1000)} `;
