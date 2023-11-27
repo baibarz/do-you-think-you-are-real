@@ -5,8 +5,8 @@ const path = require('path');
 const websiteDirectory = "html";
 const port = 2828;
 
-// Set the desired timezone for the server
-process.env.TZ = 'Europe/Oslo'; // Set to the appropriate timezone for Norway
+process.env.TZ = 'Europe/Oslo';
+
 
 const server = http.createServer((req, res) => {
   const clientTimeStr = req.headers['client-time'];
@@ -21,7 +21,7 @@ const server = http.createServer((req, res) => {
     thursday: [8 * 60, 20 * 60],
     friday: [8 * 60, 20 * 60],
     saturday: [8 * 60, 18 * 60],
-    sunday: [0, 0], // Updated opening hours for Sunday
+    sunday: [0, 0], 
     //sunday : [8 * 60, 23 * 60],
   };
 
@@ -46,7 +46,7 @@ const server = http.createServer((req, res) => {
   }
 
   // Log information about the request, including the client's IP address
-  console.log(`Request from ${req.connection.remoteAddress} for URL: ${req.url}`);
+  console.log(`Request from ${req.socket.remoteAddress} for URL: ${req.url}`);
   console.log('Client Time (in minutes):', clientTime);
   console.log('Client Time (formatted):', formatClientTime(clientTime));
   console.log('Current Day:', currentDay);
