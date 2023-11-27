@@ -32,15 +32,9 @@
         }
 
         #time-left {
-
             margin: 0;
             font-size: 14px;
-
-
-
         }
-
-
     </style>
 </head>
 <body>
@@ -71,8 +65,8 @@
                 saturday: { open: 10, close: 18 }
             };
 
-            const currentDay = now.getDay();
-            const nextOpeningTime = openingTimes[currentDay === 0 ? 'mondayFriday' : 'saturday'].open;
+            const currentDay = (now.getDay() + 6) % 7; // Adjusting for the difference in day indexing
+            const nextOpeningTime = openingTimes[currentDay < 5 ? 'mondayFriday' : 'saturday'].open;
 
             const openingDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), nextOpeningTime, 0, 0);
             if (now >= openingDate) {
