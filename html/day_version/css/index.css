@@ -11,6 +11,11 @@ body {
     padding: 20px;
 }
 
+#MYSIDE {
+
+  width:0;
+}
+
 
 
 #text-container {
@@ -49,7 +54,6 @@ body {
     transition: 0.5s;
     padding-top: 60px;
     filter: blur(1px);
-
   }
 
   /* Style the links inside the navigation menu */
