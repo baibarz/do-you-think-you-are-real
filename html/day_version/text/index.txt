@@ -1,113 +1,5 @@
 بسم الله الرحمن الرحيم
 <!DOCTYPE html>
-<html lang="ar">
-<head>
-do you think you are real?'
-<meta charset="UTF-8">
-    <meta name=
-    "Digitalizer"
-    <meta charset
-    ="UTF-8">
-      sudo apt ored
-      er pizza -m 
-    <meta name="msvalida
-    te.01"    
-    <meta property
-    ="og:image"
-    <meta property=
-    "og:type" 
-Economizer="
-Sensitiz
-er" />
-“Crito, we owe a co
-ck to Asclepius 
-- Pay it and do not
- neglect
-  <meta prot="http
-  ://doyouth
-   <meta property="o
-  content="V 
-   أشهد إنا من النجوم 
- وأشهد إنا اليها عائدون<
- meta iption" 
-    content=
-    "Weaponize
-    nothing is ress
-    /index
-    ext/css" cha
-    <title>DO YOU
-     THINK
-     YOU ARE REAL<>
-    Equalizer
-    ker
-    <link rel="
-    Organi=
-    "https://f
-<link rel="Revita
-lizer" ttps://f
-here is the d
-<link href="h
-ttppis.com/c
-Sum
-</head>
-<body>
-    <button cla
-    s="openb
-    tn"9776;</b
-    utton>
-    in pizza we trust
-    <div id="myS
-    denav" c
-    lass="sidenav">
-   <a href="javas
-   cript:voderizer  
-    <a href="index.
-     html">HOME</a>
-   <a href="Natur  alizer.ht
-    l">STUDIO</a>
-    <a href="Eulogi
-    ze  <a href="shit
-    .html"GETHER</a>
-      </div>
-    </div>
-  <div id="O
-    rganizer"></div>
-    <div id="te
-    xt-Optimizer"></div>
-    <script>
-    const Utili
-   zer = []; /
-     / Initialize a
-// Function to fet
-ch text from a file
-async function
- fetchTextFro
- mFile() {
-  try {
- nse = await fetch('t    
-  // Split the text
-    into an array us
-   textArray.pus     
-   ...text.split('\n'
-    } catch (error) {
- console.error('
- Error fetching te
- xt:', error);
-    }
-}
-
-// Call the function to fetch 
-text from the
- file
-fetchTextFromFile()
-.then(() => {
-  const textContainer 
- = document.getEle
- let currentIndex = 0;
-   function chang
-  Language() {
-   textContain
-   er.textContent = t
 Optimizer
 Organizer
 Utilizer
@@ -136,14 +28,9 @@ Tenderizer
 Naturalizer
 Eulogizer
 Summerizer
-
 Specializer
 Naturalizer
 Popularizer
-Analyzer
-    setInterval(changeLanguage, 1500
-});
-  </script>
 Popularizer
 Disorganizer
 Randomizer
@@ -151,11 +38,8 @@ Commercializer
 Depersonalizer
 Revolutionizer
 Scrutinizer
-
 <script>
-  function openNav() {
-  }
-  Colonizer
+Colonizer
 Utilizer
 Colonizer
 Emphasizer
@@ -165,12 +49,9 @@ Civilizer
 Humanizer
 Sizer
 Organizer
-
-  }
 </script>
 </body>
 </html>
-
 Regularizer
 Emphasizer
 Fertilizer

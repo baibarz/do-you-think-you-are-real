@@ -15,7 +15,7 @@ const server = http.createServer((req, res) => {
 
   const openingHours = {
     monday: [8 * 60, 20 * 60],
-    tuesday: [8 * 60, 23 * 60],
+    tuesday: [8 * 60, 20 * 60],
     wednesday: [8 * 60, 20 * 60],
     thursday: [8 * 60, 20 * 60],
     friday: [8 * 60, 20 * 60],
