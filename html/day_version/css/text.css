@@ -9,8 +9,9 @@ h1 {
 }
 .container {
     max-width: 800px;
-    margin: 0 auto;
+    margin: 60px auto;
     padding: 20px;
+
 }
 .article {
     margin-bottom: 30px;
@@ -25,3 +26,64 @@ h1 {
 
 
 
+.openbtn {
+    font-size: 30px;
+    cursor: pointer;
+    background-color: #6C757D;
+    border: none;
+    padding: 10px 15px;
+    position: fixed;
+    top: 7px;
+    left: 10px;
+    filter: grayscale(1);
+    
+  }
+
+  .sidenav {
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #6C757D;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    filter: grayscale(1);
+    
+
+  }
+
+  /* Style the links inside the navigation menu */
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    display: block;
+    transition: 0.3s;
+    text-align: left;
+    font-family: 'Mooli', sans-serif;
+    font-size: 27px;
+    filter: blur(1px);
+
+
+}
+  /* On hover, the links will change color */
+  .sidenav a:hover {
+    color: #ddd;
+  }
+
+  /* Close button style */
+  .closebtn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    margin-left: 50px;
+  }
+
+  #MYSIDE {
+
+    width:0;
+    filter: grayscale(1);
+  }

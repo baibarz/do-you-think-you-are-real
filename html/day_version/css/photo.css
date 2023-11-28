@@ -22,27 +22,29 @@ body {
    
   }
 
+  #mySidenav {
+
+    width:0;
+    filter: grayscale(1);
+  }
+
 
 
   .openbtn {
-    font-size: 20px;
+    font-size: 30px;
     cursor: pointer;
     background-color: #6C757D;
-    color: white;
     border: none;
     padding: 10px 15px;
     position: fixed;
-    top: 6px;
+    top: 7px;
     left: 10px;
+    filter: grayscale(1);
     
+  }
 
-}
-
-
-  /* Style the side navigation menu */
   .sidenav {
     height: 100%;
-    width: 0;
     position: fixed;
     z-index: 1;
     top: 0;
@@ -51,7 +53,8 @@ body {
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
-    filter: blur(1px);
+    filter: grayscale(1);
+    
 
   }
 
@@ -65,13 +68,14 @@ body {
     text-align: left;
     font-family: 'Mooli', sans-serif;
     font-size: 27px;
+    filter: blur(1px);
+
 
 }
   /* On hover, the links will change color */
   .sidenav a:hover {
     color: #ddd;
   }
-
 
   /* Close button style */
   .closebtn {
@@ -81,7 +85,6 @@ body {
     font-size: 30px;
     margin-left: 50px;
   }
-
   #bottom-link {
     position: absolute;
     bottom: 16px; /* Adjust this value to control the vertical position */

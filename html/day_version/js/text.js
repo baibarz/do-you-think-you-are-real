@@ -5,3 +5,12 @@ articles.forEach((article) => {
         content.style.display = content.style.display === 'none' ? 'block' : 'none';
     });
 });
+
+
+function openNav() {
+    document.getElementById("MYSIDE").style.width = "250px";
+  }
+  
+  function closeNav() {
+    document.getElementById("MYSIDE").style.width = "0";
+  }

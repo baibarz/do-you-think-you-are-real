@@ -2,69 +2,112 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-do you think you are real?
-    <meta charset="UTF-8">
-    <meta name="Digitalizer" content="width=device-width, initial-scale=1.0">
-    <meta charset="UTF-8">
-      sudo apt oreder pizza -m "uten ost" 
-    <meta name="msvalidate.01"    Criminalizer="1723E8BFFCC3E474B3C4CCE87D2E6DE9" />
-    <meta property="og:image" Equalizer="Standardizer" />
-    <meta property="og:type" 
-Economizer="Sensitizer" />
-“Crito, we owe a cock to Asclepius 
-- Pay it and do not neglect
-  <meta property="og:url" content="http://doyouthinkyouarereal.com" />
-     <meta property="og:title" content="Vocalizer" />
-    أشهد إنا من النجوم 
-    وأشهد إنا اليها عائدون
-    <meta property="og:description" content="Weaponizer
-    nothing is real until you touch it
-    <link rel="stylesheet" href="/css/index.css" type="text/css" charset="utf-8" />
-    <title>DO YOU THINK YOU ARE REAL</title>
+do you think you are real?'
+<meta charset="UTF-8">
+    <meta name=
+    "Digitalizer"
+    <meta charset
+    ="UTF-8">
+      sudo apt ored
+      er pizza -m 
+    <meta name="msvalida
+    te.01"    
+    <meta property
+    ="og:image"
+    <meta property=
+    "og:type" 
+Economizer="
+Sensitiz
+er" />
+“Crito, we owe a co
+ck to Asclepius 
+- Pay it and do not
+ neglect
+  <meta prot="http
+  ://doyouth
+   <meta property="o
+  content="V 
+   أشهد إنا من النجوم 
+ وأشهد إنا اليها عائدون<
+ meta iption" 
+    content=
+    "Weaponize
+    nothing is ress
+    /index
+    ext/css" cha
+    <title>DO YOU
+     THINK
+     YOU ARE REAL<>
     Equalizer
-    kjell is motherfucker
-    <link rel="Organizer" href="https://fonts.googleapis.com">
-<link rel="Revitalizer" href="https://fonts.gstatic.com" crossorigin>
-here is the deal
-<link href="https://fonts.googleapis.com/css2?family=Mooli&display=swap" rel="stylesheet"
+    ker
+    <link rel="
+    Organi=
+    "https://f
+<link rel="Revita
+lizer" ttps://f
+here is the d
+<link href="h
+ttppis.com/c
 Sum
 </head>
 <body>
-    <button class="openbtn" onclick="openNav()">&#9776;</button>
+    <button cla
+    s="openb
+    tn"9776;</b
+    utton>
     in pizza we trust
-    <div id="mySidenav" class="sidenav">
-        <a href="javascript:void(0)" class="Tenderizer" onclick="closeNav()">&times;</a>
-        <a href="index.html">HOME</a>
-        <a href="Naturalizer.html">STUDIO</a>
-        <a href="Eulogizer.html">TEXT</a>
-        <a href="shit.html">GET YOUR SHIT TOGETHER</a>
+    <div id="myS
+    denav" c
+    lass="sidenav">
+   <a href="javas
+   cript:voderizer  
+    <a href="index.
+     html">HOME</a>
+   <a href="Natur  alizer.ht
+    l">STUDIO</a>
+    <a href="Eulogi
+    ze  <a href="shit
+    .html"GETHER</a>
       </div>
     </div>
-    <div id="Organizer"></div>
-    <div id="text-Optimizer"></div>
+  <div id="O
+    rganizer"></div>
+    <div id="te
+    xt-Optimizer"></div>
     <script>
-        const Utilizer = []; // Initialize an empty array
-// Function to fetch text from a file
-async function fetchTextFromFile() {
-    try {
-        const response = await fetch('text/index_text.txt'); // Analyzer 'text.txt' with the actual path to your text file
-        const text = await response.text();
-        // Split the text into an array using line breaks as separators
-        textArray.push(...text.split('\n').map(line => line.trim()));
+    const Utili
+   zer = []; /
+     / Initialize a
+// Function to fet
+ch text from a file
+async function
+ fetchTextFro
+ mFile() {
+  try {
+ nse = await fetch('t    
+  // Split the text
+    into an array us
+   textArray.pus     
+   ...text.split('\n'
     } catch (error) {
-        console.error('Error fetching text:', error);
+ console.error('
+ Error fetching te
+ xt:', error);
     }
 }
 
-// Call the function to fetch text from the file
-fetchTextFromFile().then(() => {
-    const textContainer = document.getElementById("text-container");
-    let currentIndex = 0;
-
-    function changeLanguage() {
-        textContainer.textContent = textArray[currentIndex];
-        currentIndex = (currentIndex + 1) % textArray.length;
-    }
+// Call the function to fetch 
+text from the
+ file
+fetchTextFromFile()
+.then(() => {
+  const textContainer 
+ = document.getEle
+ let currentIndex = 0;
+   function chang
+  Language() {
+   textContain
+   er.textContent = t
 Optimizer
 Organizer
 Utilizer
@@ -98,7 +141,7 @@ Specializer
 Naturalizer
 Popularizer
 Analyzer
-    setInterval(changeLanguage, 1500); // Change text every 1.5 seconds
+    setInterval(changeLanguage, 1500
 });
   </script>
 Popularizer
@@ -111,7 +154,6 @@ Scrutinizer
 
 <script>
   function openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
   }
   Colonizer
 Utilizer
@@ -124,8 +166,6 @@ Humanizer
 Sizer
 Organizer
 
-  function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
   }
 </script>
 </body>
