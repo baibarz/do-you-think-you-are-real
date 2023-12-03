@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ Page</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .faq-section {
+            margin-top: 20px;
+        }
+
+        .question {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .answer {
+            display: none;
+            padding: 10px;
+        }
+
+        .question:hover {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Frequently Asked Questions</h1>
+
+    <div class="faq-section">
+        <div class="question" onclick="toggleAnswer('q1')">Is there a specific reason the website has designated closing hours?</div>
+        <div class="answer" id="q1">
+            Indeed, the website adheres to designated closing hours to humanize data. 
+        </div>
+    </div>
+
+    <div class="faq-section">
+        <div class="question" onclick="toggleAnswer('q2')">Why does your website stay silent on Sundays?</div>
+        <div class="answer" id="q2">
+            Sundays are sacred, a day for introspection and quiet contemplation. We believe in the power of silence to echo the profound
+            expressions found within our art. Join us in embracing the stillness.
+        </div>
+    </div>
+
+    <div class="faq-section">
+        <div class="question" onclick="toggleAnswer('q3')">Why is the website closed on Sundays?</div>
+        <div class="answer" id="q3">
+            Sundays are a canvas left blank. By closing our virtual doors on this day, we invite you to explore the art of solitude and reflect
+            on the beauty found in moments of silence. We'll be back on Monday, ready to share more inspiration.
+        </div>
+    </div>
+
+    <div class="faq-section">
+        <div class="question" onclick="toggleAnswer('q4')">Why does the website close after 20:00 each day?</div>
+        <div class="answer" id="q4">
+            As the clock strikes 20:00, our virtual gallery closes its doors to allow the art to breathe in the quiet of the night. We believe
+            that darkness has its own way of revealing the essence of creativity, and we invite you to explore it with us when the sun rises again.
+        </div>
+    </div>
+
+    <!-- Add more FAQ sections as needed -->
+
+    <script>
+        function toggleAnswer(questionId) {
+            const answer = document.getElementById(questionId);
+            if (answer.style.display === 'block') {
+                answer.style.display = 'none';
+            } else {
+                answer.style.display = 'block';
+            }
+        }
+    </script>
+
+</body>
+</html>

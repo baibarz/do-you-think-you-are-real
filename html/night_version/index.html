@@ -18,7 +18,6 @@
         .opening-hours {
             text-align: center;
             margin-top: 20px;
-            
         }
         .additional-info {
             margin-top: 20px;
@@ -59,9 +58,9 @@
 
         async function getServerTime() {
             try {
-                const response = await fetch('https://worldtimeapi.org/api/timezone/Europe/London'); // Replace with your server endpoint
+                const response = await fetch('https://worldtimeapi.org/api/timezone/Europe/Oslo');
                 const data = await response.json();
-                return new Date(data.datetime);
+                return new Date(data.utc_datetime);
             } catch (error) {
                 console.error('Error fetching server time:', error);
                 return new Date();
@@ -76,22 +75,36 @@
                 saturday: { open: 10, close: 18 }
             };
 
-            const currentDay = (now.getDay() + 6) % 7; // Adjusting for the difference in day indexing
-            const nextOpeningTime = openingTimes[currentDay < 5 ? 'mondayFriday' : 'saturday'].open;
+            const currentDay = now.getDay();
+            let nextOpeningDay = currentDay;
 
-            const openingDate = new Date(now.getFullYear(), now.getMonth(), now.getDate(), nextOpeningTime, 0, 0);
-            if (now >= openingDate) {
-                openingDate.setDate(openingDate.getDate() + 1);
+            if (currentDay === 0) {
+                nextOpeningDay = 1; // Monday
+            } else if (currentDay >= 1 && currentDay <= 5) {
+                nextOpeningDay = 6; // Saturday
+            } else {
+                nextOpeningDay = 1; // Monday
             }
 
-            const timeLeft = openingDate - now;
-            const hoursLeft = Math.floor(timeLeft / (1000 * 60 * 60));
-            const minutesLeft = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const nextOpeningTime = openingTimes[nextOpeningDay === 1 ? 'mondayFriday' : 'saturday'].open;
+
+            let timeLeftMillis = nextOpeningTime * 60 * 60 * 1000 - now.getTime();
+
+            if (timeLeftMillis < 0) {
+                // If the current time is after closing, calculate time until the next day's opening
+                const tomorrowOpeningTime = openingTimes[nextOpeningDay === 1 ? 'mondayFriday' : 'saturday'].open;
+                const tomorrowOpeningMillis = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, tomorrowOpeningTime, 0, 0).getTime();
+                timeLeftMillis = tomorrowOpeningMillis - now.getTime();
+            }
+
+            const hoursLeft = Math.floor(timeLeftMillis / (1000 * 60 * 60));
+            const minutesLeft = Math.floor((timeLeftMillis % (1000 * 60 * 60)) / (1000 * 60));
+            const secondsLeft = Math.floor((timeLeftMillis % (1000 * 60)) / 1000);
 
             document.getElementById('mondayFriday').textContent = `${formatTime(openingTimes.mondayFriday.open, 0)} AM - ${formatTime(openingTimes.mondayFriday.close, 0)} PM`;
             document.getElementById('saturday').textContent = `${formatTime(openingTimes.saturday.open, 0)} AM - ${formatTime(openingTimes.saturday.close, 0)} PM`;
 
-            document.getElementById('time-left').textContent = `the website will open in: ${hoursLeft}:${minutesLeft}:${Math.floor((timeLeft % (1000 * 60)) / 1000)} `;
+            document.getElementById('time-left').textContent = `${hoursLeft}:${minutesLeft.toString().padStart(2, '0')}:${secondsLeft.toString().padStart(2, '0')}`;
         }
 
         // Update the opening hours every second
