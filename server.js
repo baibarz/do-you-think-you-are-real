@@ -29,7 +29,7 @@ function isTimeInRange(startHour, endHour) {
  @returns {string} The content to be served based on the visitor's time and day of the week.
  */
 function serveContent() {
-    const currentDay = new Date().toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase();
+    const currentDay = new Date().toLocaleDateString('no-NO', { weekday: 'long' }).toLowerCase();
     const currentHour = new Date().getHours();
 
     if (currentDay === 'sunday') {
