@@ -1,63 +1,66 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
+    <head>
+        <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+        <meta content="utf-8" http-equiv="encoding">
+        <script type="text/javascript" src="html2canvas.js"></script>
+        <script type="text/javascript" src="glitch-lib.js"></script>
+        <script type="text/javascript" src="glitch-execute.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Opening Hours</title>
+    </head>
+    <body>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Opening Hours</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            color: #333;
-        }
-
-        .opening-hours {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        #additional-info {
-            margin-top: 20px;
-            font-size: 14px;
-            display: inline-block; /* or other appropriate display property */
-        }
-
-        a {
-            color: #007BFF;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        #time-left {
-            margin: 0;
-            font-size: 14px;
-        }
-
+        <style>
+            #page {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+                margin: 0;
+                color: #333;
+            }
+    
+            .opening-hours {
+                text-align: center;
+                margin-top: 20px;
+            }
+    
         
-    </style>
-</head>
+    
+            a {
+                color: #007BFF;
+                text-decoration: none;
+                font-weight: bold;
+            }
+    
+            #time-left {
+                margin: 0;
+                font-size: 14px;
+            }
+    
+            
+        </style>
+        
+    <div id="page">
 
-<body>
 
-    <h1>Opening Hours (UTC+1)</h1>
+        <h1>Opening Hours (UTC+1)</h1>
 
     <div class="opening-hours">
         <p><strong>Monday - Friday:</strong> 8:00 - 20:00</p>
         <p><strong>Saturday:</strong> 10:00 AM - 18:00</p>
         <p><strong>Sunday:</strong> Closed</p>
-    </div>
-
-    <div id="additional-info">
         <p>come back later or try, <a href="game/shit.html">get your shit together</a>.</p>
-    </div>
 
-  
-</body>
+    </div> 
 
+        <script type="text/javascript">
+            window.onload = function() {
+                var gl = Object.create(glitch_exec);
+                gl.start(document.body);
+            }
+        </script>
+    </body>
 </html>
