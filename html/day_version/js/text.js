@@ -14,3 +14,4 @@ function openNav() {
   function closeNav() {
     document.getElementById("MYSIDE").style.width = "0";
   }
+

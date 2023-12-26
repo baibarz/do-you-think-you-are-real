@@ -7,13 +7,7 @@ const port = 2828;
 
 process.env.TZ = 'Europe/Oslo';
 
-/**
- * Function to check if the current time falls within a specified range.
- *
- * @param {number} startHour - The starting hour of the range.
- * @param {number} endHour - The ending hour of the range.
- * @returns {boolean} True if the current time falls within the range, false otherwise.
- */
+
 function isTimeInRange(startHour, endHour) {
     const currentHour = new Date().getHours();
     if (startHour <= endHour) {
