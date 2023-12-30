@@ -2,23 +2,30 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-image: url('/images/bk/6.png'); /* Replace with your image path */
+    background-size: cover; /* This will make sure the image covers the whole page */
+    background-position: center; /* This centers the image on the page */
+    background-repeat: no-repeat; /* This will prevent the image from repeating */
+    background-attachment: fixed; /* This will fix the background image during scroll */
+
 }
 
 h1 {
     margin: 0;
 }
 .container {
-    max-width: 800px;
+    max-width: 760px;
     margin: 60px auto;
     padding: 20px;
-
 }
 .article {
     margin-bottom: 30px;
-    border: 1px solid #ccc;
+    border: 1px solid #ffffff;
     padding: 10px;
     cursor: pointer;
     direction: rtl;
+    color: white;
+    background-color: #0a6daa;
 }
 .article-content {
     display: none;
@@ -27,15 +34,19 @@ h1 {
 
 
 .openbtn {
+  color: #0a6daa;
     font-size: 30px;
     cursor: pointer;
-    background-color: #6C757D;
     border: none;
     padding: 10px 15px;
     position: fixed;
     top: 7px;
     left: 10px;
-    filter: grayscale(1);
+    background-image: url('/images/bk/6.png'); /* Replace with your image path */
+    background-size: cover; /* This will make sure the image covers the whole page */
+    background-position: center; /* This centers the image on the page */
+    background-repeat: no-repeat; /* This will prevent the image from repeating */
+    background-attachment: fixed;
     
   }
 
@@ -45,12 +56,17 @@ h1 {
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #6C757D;
+    background-color: #ffffff;
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
-    filter: grayscale(1);
-    
+    background-image: url('/images/bk/6.png'); /* Replace with your image path */
+    background-size: cover; /* This will make sure the image covers the whole page */
+    background-position: center; /* This centers the image on the page */
+    background-repeat: no-repeat; /* This will prevent the image from repeating */
+    background-attachment: fixed; /* This will fix the background image during scroll */
+
+
 
   }
 
@@ -58,7 +74,7 @@ h1 {
   .sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     display: block;
     transition: 0.3s;
     text-align: left;
@@ -85,5 +101,4 @@ h1 {
   #MYSIDE {
 
     width:0;
-    filter: grayscale(1);
   }

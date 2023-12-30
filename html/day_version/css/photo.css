@@ -2,7 +2,11 @@ body {
 
     margin: 0;
     padding: 0;
-    background-color: #ffffff;;
+    background-image: url('/images/bk/6.png'); /* Replace with your image path */
+    background-size: cover; /* This will make sure the image covers the whole page */
+    background-position: center; /* This centers the image on the page */
+    background-repeat: no-repeat; /* This will prevent the image from repeating */
+    background-attachment: fixed; /* This will fix the background image during scroll */
   }
   .gallery {
     display: flex;
@@ -10,7 +14,6 @@ body {
     max-width: 1600px;
     margin: 90px auto;
     align-content: center;
-    filter: grayscale(1);
    
   }
   .gallery img {
@@ -25,21 +28,25 @@ body {
   #mySidenav {
 
     width:0;
-    filter: grayscale(1);
   }
 
 
 
   .openbtn {
+    color: #0a6daa;
     font-size: 30px;
     cursor: pointer;
-    background-color: #6C757D;
+    background-color: #ffffff;
     border: none;
     padding: 10px 15px;
     position: fixed;
     top: 7px;
     left: 10px;
-    filter: grayscale(1);
+    background-image: url('/images/bk/6.png'); /* Replace with your image path */
+    background-size: cover; /* This will make sure the image covers the whole page */
+    background-position: center; /* This centers the image on the page */
+    background-repeat: no-repeat; /* This will prevent the image from repeating */
+    background-attachment: fixed;
     
   }
 
@@ -49,11 +56,16 @@ body {
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #6C757D;
+    background-color: #ffffff;
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
-    filter: grayscale(1);
+    background-image: url('/images/bk/6.png'); /* Replace with your image path */
+    background-size: cover; /* This will make sure the image covers the whole page */
+    background-position: center; /* This centers the image on the page */
+    background-repeat: no-repeat; /* This will prevent the image from repeating */
+    background-attachment: fixed; /* This will fix the background image during scroll */
+
     
 
   }
@@ -62,7 +74,7 @@ body {
   .sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     display: block;
     transition: 0.3s;
     text-align: left;

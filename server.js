@@ -30,7 +30,7 @@ function serveContent() {
         return "night_version";
     } else if (currentDay === 'saturday' && isTimeInRange(10, 18)) {
         return "day_version";
-    } else if (isTimeInRange(8, 20)) {
+    } else if (isTimeInRange(8, 23)) {
         return "day_version";
     } else {
         return "night_version";
