@@ -41,19 +41,7 @@
     language-code="en"
     
 ></df-messenger>
-<script>
-    window.addEventListener('dfMessengerLoaded', function (event) {
-        const dfMessenger = document.querySelector('df-messenger');
-        const shadowRoot = dfMessenger.shadowRoot;
-        const logoElement = shadowRoot.querySelector('.title-bar div.logo');
 
-        if (logoElement) {
-            logoElement.style.backgroundImage = "url('/images/logo.jpg')";
-            logoElement.style.backgroundSize = "contain";
-            logoElement.style.backgroundRepeat = "no-repeat";
-        }
-    });
-</script>
 
 </body>
 </html>
