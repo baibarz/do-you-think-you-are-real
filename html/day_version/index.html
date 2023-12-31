@@ -33,7 +33,27 @@
 
 </script>
 
+<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+<df-messenger
+    intent="WELCOME"
+    chat-title="Chat with Us"
+    agent-id="767d142e-d060-4447-93ef-c3d1f901571c"
+    language-code="en"
+    
+></df-messenger>
+<script>
+    window.addEventListener('dfMessengerLoaded', function (event) {
+        const dfMessenger = document.querySelector('df-messenger');
+        const shadowRoot = dfMessenger.shadowRoot;
+        const logoElement = shadowRoot.querySelector('.title-bar div.logo');
 
+        if (logoElement) {
+            logoElement.style.backgroundImage = "url('/images/logo.jpg')";
+            logoElement.style.backgroundSize = "contain";
+            logoElement.style.backgroundRepeat = "no-repeat";
+        }
+    });
+</script>
 
 </body>
 </html>
