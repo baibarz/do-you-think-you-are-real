@@ -17,25 +17,15 @@ function isTimeInRange(startHour, endHour) {
     }
 }
 
-/**
- * Function to serve different content based on the visitor's time and day of the week.
- *
- @returns {string} The content to be served based on the visitor's time and day of the week.
- */
-function serveContent() {
-    const currentDay = new Date().toLocaleDateString('no-NO', { weekday: 'long' }).toLowerCase();
-    const currentHour = new Date().getHours();
 
-    if (currentDay === 'sunday') {
-        return "night_version";
-    } else if (currentDay === 'saturday' && isTimeInRange(10, 18)) {
-        return "day_version";
-    } else if (isTimeInRange(8, 24)) {
+function serveContent() {
+    if (isTimeInRange(8, 20)) {
         return "day_version";
     } else {
         return "night_version";
     }
 }
+
 const server = http.createServer((req, res) => {
     const clientTimeStr = req.headers['client-time'];
     const clientTime = clientTimeStr
