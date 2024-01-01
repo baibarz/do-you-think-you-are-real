@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: filter 2s ease-in-out; /* Smooth transition for the blur effect */
+    filter: blur(0px);
+
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100vh; 
+    overflow: hidden; 
+    transition: filter 2s ease-in-out; /* Smooth transition for the blur effect */
+
+  
+  }
+  
+  body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%; 
+    height: 100%;
+    background: #000000;
+    z-index: -1;
+  }
+  
+  body::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%; 
+    height: 100%;
+    background: #ffffff;
+    z-index: -1;
+  
+  }
+  

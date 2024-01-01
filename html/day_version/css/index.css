@@ -108,5 +108,8 @@ body {
 
 
 
+df-messenger {
 
-/* Customizing the logo - replace 'your_logo_url_here' with your actual logo URL */
+  --df-messenger-button-titlebar-color: #250303;
+  
+   }

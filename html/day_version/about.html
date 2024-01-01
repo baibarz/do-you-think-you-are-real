@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="css/about.css">
+</head>
+<body>
+    <canvas id="canvas1"></canvas>
+    <script src="js/about.js"></script>
+
+    <audio id="backgroundMusic" autoplay loop>
+        <source src="space11.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+   
+    <script>
+        // Get the audio element
+        var audio = document.getElementById('backgroundMusic');
+
+        // Listen for the 'ended' event on the audio element
+        audio.addEventListener('ended', function() {
+            // When the song is finished, set the maximum blur effect
+            document.body.style.filter = 'blur(10px)';
+        });
+
+        // Optional: Gradually increase blur as the song plays
+        var blurIncrement = 0.1; // Increase this value for faster blurring
+        var maxBlur = 10; // Corresponds to the CSS blur value
+        var currentBlur = 0; // Start with no blur
+
+        function increaseBlurOverTime() {
+            // Only increase blur if the audio is still playing
+            if (!audio.paused && currentBlur < maxBlur) {
+                currentBlur += blurIncrement;
+                document.body.style.filter = `blur(${currentBlur}px)`;
+            }
+        }
+
+        // Call the blur function every second (or choose your own interval)
+        setInterval(increaseBlurOverTime, 1000);
+    </script>
+    
+</body>
+</html>
