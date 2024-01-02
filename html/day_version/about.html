@@ -19,11 +19,11 @@
         var audio = document.getElementById('backgroundMusic');
 
         audio.addEventListener('ended', function() {
-            document.body.style.filter = 'blur(10px)';
+            document.body.style.filter = 'blur(20px)';
         });
 
-        var blurIncrement = 0.1; // Increase this value for faster blurring
-        var maxBlur = 10; // Corresponds to the CSS blur value
+        var blurIncrement = 0.2; // Increase this value for faster blurring
+        var maxBlur = 20; // Corresponds to the CSS blur value
         var currentBlur = 0; // Start with no blur
 
         function increaseBlurOverTime() {
