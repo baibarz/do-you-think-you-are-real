@@ -1,5 +1,5 @@
 
-This repository hosts the code for "DoYouThinkYouAreReal.com", a unique web experience that explores the nature of reality and perception. 
+This repository hosts the code for "doyouthinkyouarereal.com", a unique web experience that explores the nature of reality and perception. 
 The website features dynamic content that changes between day and night versions, based on the server time.
 
 
