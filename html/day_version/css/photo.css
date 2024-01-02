@@ -3,7 +3,7 @@ body {
 
     margin: 0;
     padding: 0;
-    background-image: url('/images/bk/6.png'); /* Replace with your image path */
+    background-image: url('/images/bk/6.webp'); /* Replace with your image path */
     background-size: cover; /* This will make sure the image covers the whole page */
     background-position: center; /* This centers the image on the page */
     background-repeat: no-repeat; /* This will prevent the image from repeating */
@@ -44,7 +44,7 @@ body {
     position: fixed;
     top: 7px;
     left: 10px;
-    background-image: url('/images/bk/6.png'); /* Replace with your image path */
+    background-image: url('/images/bk/6.webp'); /* Replace with your image path */
     background-size: cover; /* This will make sure the image covers the whole page */
     background-position: center; /* This centers the image on the page */
     background-repeat: no-repeat; /* This will prevent the image from repeating */
@@ -62,7 +62,7 @@ body {
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 60px;
-    background-image: url('/images/bk/6.png'); /* Replace with your image path */
+    background-image: url('/images/bk/6.webp'); /* Replace with your image path */
     background-size: cover; /* This will make sure the image covers the whole page */
     background-position: center; /* This centers the image on the page */
     background-repeat: no-repeat; /* This will prevent the image from repeating */
