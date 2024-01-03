@@ -8,8 +8,6 @@
         <script type="text/javascript" src="glitch-execute.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Opening Hours</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Delve into the mysteries of reality and perception with interactive explorations.">
         <meta property="og:type" content="website" />
         <meta property="og:url" content="http://doyouthinkyouarereal.com" />
@@ -23,21 +21,32 @@
     <body>
 
         <style>
+
+
+body {  margin: 0;
+  padding: 0;
+  background-image: url('9.png'); /* Replace with your image path */
+    background-size: cover; /* This will make sure the image covers the whole page */
+    background-position: center; /* This centers the image on the page */
+    background-repeat: no-repeat; /* This will prevent the image from repeating */
+    background-attachment: fixed; /* This will fix the background image during scroll */
+ }
+
+
             #page {
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
                 height: 100vh;
                 margin: 0;
-                color: #333;
+                color: #fffefe;
+                filter: blur(0px);
             }
     
             .opening-hours {
                 text-align: center;
                 margin-top: 20px;
-
             }
     
     h1 { font: size 2rv;}
