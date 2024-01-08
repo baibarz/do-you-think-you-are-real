@@ -7,7 +7,6 @@ const port = 2828;
 
 process.env.TZ = 'Europe/Oslo';
 
-
 function isTimeInRange(startHour, endHour) {
     const currentHour = new Date().getHours();
     if (startHour <= endHour) {
@@ -17,7 +16,6 @@ function isTimeInRange(startHour, endHour) {
     }
 }
 
-
 function serveContent() {
     if (isTimeInRange(8, 20)) {
         return "day_version";
@@ -25,6 +23,28 @@ function serveContent() {
         return "night_version";
     }
 }
+
+const getContentType = (req, filePath) => {
+    const extname = path.extname(filePath).toLowerCase();
+    const mimeTypes = {
+        '.html': 'text/html',
+        '.js': 'text/javascript',
+        '.css': 'text/css',
+        '.json': 'application/json',
+        '.png': 'image/png',
+        '.jpg': 'image/jpg',
+        '.gif': 'image/gif',
+        '.svg': 'image/svg+xml',
+        '.txt': 'text/plain',
+    };
+    return mimeTypes[extname] || 'application/octet-stream';
+};
+
+const formatClientTime = (clientTime) => {
+    const hours = Math.floor(clientTime / 60);
+    const minutes = clientTime % 60;
+    return `${hours} hours and ${minutes} minutes`;
+};
 
 const server = http.createServer((req, res) => {
     const clientTimeStr = req.headers['client-time'];
@@ -49,8 +69,17 @@ const server = http.createServer((req, res) => {
 
     fs.readFile(filePath, (err, data) => {
         if (err) {
-            res.writeHead(404, { 'Content-Type': 'text/plain' });
-            res.end('File Not Found');
+            // Serve the custom 404 page
+            const errorFilePath = path.join(__dirname, websiteDirectory, directory, '404.html');
+            fs.readFile(errorFilePath, (error, errorData) => {
+                if (error) {
+                    res.writeHead(500, { 'Content-Type': 'text/plain' });
+                    res.end('Error loading the custom 404 page.');
+                } else {
+                    res.writeHead(404, { 'Content-Type': 'text/html' });
+                    res.end(errorData);
+                }
+            });
         } else {
             res.writeHead(200, { 'Content-Type': getContentType(req, filePath) });
             res.end(data);
@@ -58,29 +87,6 @@ const server = http.createServer((req, res) => {
     });
 });
 
-const getContentType = (req, filePath) => {
-    const extname = path.extname(filePath).toLowerCase();
-    const mimeTypes = {
-        '.html': 'text/html',
-        '.js': 'text/javascript',
-        '.css': 'text/css',
-        '.json': 'application/json',
-        '.png': 'image/png',
-        '.jpg': 'image/jpg',
-        '.gif': 'image/gif',
-        '.svg': 'image/svg+xml',
-        '.txt': 'text/plain',
-    };
-
-    return mimeTypes[extname] || 'application/octet-stream';
-};
-
-const formatClientTime = (clientTime) => {
-    const hours = Math.floor(clientTime / 60);
-    const minutes = clientTime % 60;
-    return `${hours} hours and ${minutes} minutes`;
-};
-
 server.listen(port, () => {
     console.log(`Server running on http://localhost:${port}`);
-});
+}); // This line closes the http.createServer callback
