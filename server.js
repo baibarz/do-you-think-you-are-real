@@ -17,7 +17,7 @@ function isTimeInRange(startHour, endHour) {
 }
 
 function serveContent() {
-    if (isTimeInRange(8, 20)) {
+    if (isTimeInRange(8, 12)) {
         return "day_version";
     } else {
         return "night_version";
@@ -36,6 +36,7 @@ const getContentType = (req, filePath) => {
         '.gif': 'image/gif',
         '.svg': 'image/svg+xml',
         '.txt': 'text/plain',
+        '.mp3':  'audio/mpeg',
     };
     return mimeTypes[extname] || 'application/octet-stream';
 };
