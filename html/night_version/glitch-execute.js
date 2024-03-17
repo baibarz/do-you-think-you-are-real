@@ -7,10 +7,10 @@ function getRandomInt (min, max) {
 glitch_exec = {
     /* Global config settings */
     NR_OF_GLITCHED_CANVASES : 6,
-    GLITCH_RENDER_COUNT     : 0, /* 0 or negative == glitch indefinitely ; > 0 == glich & few times and stop */
+    GLITCH_RENDER_COUNT     : 150, /* 0 or negative == glitch indefinitely ; > 0 == glich & few times and stop */
     GLITCH_INTERVAL_PROGRESSIVE : 1,
     GLITCH_INTERVAL_MIN     : 5, /* millisecs */
-    GLITCH_INTERVAL_MAX     : 1500, /* millisecs */
+    GLITCH_INTERVAL_MAX     : 150, /* millisecs */
     DELAY_BETWEEN_FRAMES    : 30,  /* 30 milisecs delay */
     DELAY_BETWEEN_GLITCHES  : 0,
     GLITCH_REFRESH_FRAMES_INTERVAL : 1, /* refresh glitched frames after N glitches ; 0 disables this */
