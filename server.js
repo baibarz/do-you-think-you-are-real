@@ -17,7 +17,7 @@ function isTimeInRange(startHour, endHour) {
 }
 
 function serveContent() {
-    if (isTimeInRange(16, 8)) {
+    if (isTimeInRange(12, 13)) {
         return "day_version";
     } else {
         return "night_version";
