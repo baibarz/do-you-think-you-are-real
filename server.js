@@ -17,14 +17,10 @@ function isTimeInRange(startHour, endHour) {
 }
 
 function serveContent() {
-    if (isTimeInRange(16, 8)) {
-        return "day_version";
-    } else {
-        return "night_version";
-    }
+    return isTimeInRange(16, 8) ? "day_version" : "night_version";
 }
 
-const getContentType = (req, filePath) => {
+const getContentType = (filePath) => {
     const extname = path.extname(filePath).toLowerCase();
     const mimeTypes = {
         '.html': 'text/html',
@@ -32,7 +28,7 @@ const getContentType = (req, filePath) => {
         '.css': 'text/css',
         '.json': 'application/json',
         '.png': 'image/png',
-        '.jpg': 'image/jpg',
+        '.jpg': 'image/jpeg',
         '.gif': 'image/gif',
         '.svg': 'image/svg+xml',
         '.txt': 'text/plain',
@@ -54,9 +50,7 @@ const server = http.createServer((req, res) => {
         : new Date().getHours() * 60 + new Date().getMinutes();
 
     const currentDay = new Date().toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase();
-    
     const directory = serveContent();
-
     const filePath = req.url === '/'
         ? path.join(__dirname, websiteDirectory, directory, 'index.html')
         : path.join(__dirname, websiteDirectory, directory, req.url);
@@ -70,7 +64,6 @@ const server = http.createServer((req, res) => {
 
     fs.readFile(filePath, (err, data) => {
         if (err) {
-            // Serve the custom 404 page
             const errorFilePath = path.join(__dirname, websiteDirectory, directory, '404.html');
             fs.readFile(errorFilePath, (error, errorData) => {
                 if (error) {
@@ -82,7 +75,7 @@ const server = http.createServer((req, res) => {
                 }
             });
         } else {
-            res.writeHead(200, { 'Content-Type': getContentType(req, filePath) });
+            res.writeHead(200, { 'Content-Type': getContentType(filePath) });
             res.end(data);
         }
     });
@@ -90,4 +83,4 @@ const server = http.createServer((req, res) => {
 
 server.listen(port, () => {
     console.log(`Server running on http://localhost:${port}`);
-}); 
+});
