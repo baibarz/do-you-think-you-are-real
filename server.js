@@ -17,7 +17,7 @@ function isTimeInRange(startHour, endHour) {
 }
 
 function serveContent() {
-    return isTimeInRange(13, 8) ? "day_version" : "night_version";
+    return isTimeInRange(16, 9) ? "day_version" : "night_version";
 }
 
 const getContentType = (filePath) => {
